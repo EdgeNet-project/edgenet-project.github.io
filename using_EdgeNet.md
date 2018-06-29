@@ -33,7 +33,7 @@ the wide variety of training materials and answers on
 was a strong motivation for choosing Kubernetes; there are more
 training materials available than there ever were for GENI, SAVI,
 or PlanetLab.   We suggest new users begin with the
-[Google tutorials](https://kubernetes.io.docs), though there are many other
+[Kubernetes' own tutorials](https://kubernetes.io/docs/tutorials/), though there are many other
 good choices online.  Kubernetes can be run locally using
 [Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/),
 so you can play with it on your laptop or local server.  In addition,
