@@ -60,12 +60,12 @@ when the namespace is created.
 
 ### K8s Networking
 
-It’s anticipated that during the execution of a K8s Pod, that the
-worker node(s) on which the pod is running may fail, or the Pod may
+It’s anticipated that during the execution of a K8s pod, that the
+worker node(s) on which the pod is running may fail, or the pod may
 migrate across worker nodes in response to load, latency, external
-demand, and so on.  As a result, K8s Pods are not addressed by IP
+demand, and so on.  As a result, K8s pods are not addressed by IP
 address but by service name; the K8s proxy takes care of  resolving
-Pod names to addresses.  EdgeNet slides can host services on raw
+pod names to addresses.  EdgeNet slides can host services on raw
 ports; however, port contention is managed by K8s.  It is strongly
 recommended that EdgeNet users use the name resolution option rather
 than request direct access to external ports.
@@ -91,13 +91,13 @@ And then run with
 $ kubectl run <parameters>
 ```
 
-Once run, Pods can be entered using the `exec` command, stopped,
+Once run, pods can be entered using the `exec` command, stopped,
 started, exposed as a service, etc., using a command syntax very
 similar to Docker.  One exception is that while Docker containers
-are bound to a single machine, Pods are bound to a cluster.
+are bound to a single machine, pods are bound to a cluster.
 In fact, to a K8s developer using a native K8s infrastructure, both
 VMs and physical machines are more or less irrelevant; assigning
-Pods to VMs or hardware (generally hardware; in a pure K8s environment
+pods to VMs or hardware (generally hardware; in a pure K8s environment
 VMs have little value) is the job of the K8s scheduler.
 
 
@@ -108,26 +108,26 @@ difference is one of perspective: a GENI Slice is defined in terms
 of the operator’s perspective (it is a bag to which the developer
 attaches resources) rather than from the developer’s (a Service is
 an organized collection of execution instances which together deliver
-a service to the end-user).  The K8s Pod plays a role roughly
+a service to the end-user).  The K8s pod plays a role roughly
 equivalent to a GENI sliver.   The rough equivalence is again
 primarily due to the operator vs developer perspective; GENI defines
 a sliver as a resource which is attached to a slice; K8s defines a
-Pod as a collection of containers which form the unit of instantiable
+pod as a collection of containers which form the unit of instantiable
 functionality for a Service.   To see the difference, note that a
 GENI experimenter who wished to use K8s  to deploy and organize his or her
-experiment might make the reasonable choice to deploy each Pod in
-a VM; in this case, GENI would see each Pod as a sliver.  However,
+experiment might make the reasonable choice to deploy each pod in
+a VM; in this case, GENI would see each pod as a sliver.  However,
 another reasonable choice, depending upon the resources consumed
-by each Pod, is to have multiple Pods in a VM.  This would be the
-preferred option when the resources demanded by a Pod are relatively
-modest: not only is it much more resource-efficient, a Pod spins
+by each pod, is to have multiple pods in a VM.  This would be the
+preferred option when the resources demanded by a pod are relatively
+modest: not only is it much more resource-efficient, a pod spins
 up very rapidly, on the order of seconds; in contrast, spinning up
 a VM on GENI takes about 15 minutes.   In this case, GENI would
-continue to regard the VM as a sliver and the Pods, which form the
+continue to regard the VM as a sliver and the pods, which form the
 actual unit of the service, are transparent to GENI.
 
 The unit of tenancy in K8s is the *namespace*; this is a collection
-of Pods that can be accessed through a single authorization
+of pods that can be accessed through a single authorization
 certificate, and for our purposes can be regarded as isomorphic to
 a GENI Project.
 
