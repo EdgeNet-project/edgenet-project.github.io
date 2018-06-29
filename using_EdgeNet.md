@@ -19,10 +19,9 @@ Kubernetes, read a short description in the next section.
 In the beginning, there was Borg.
 
 Borg was Google’s container management system, which ran just about
-every application inside Google, highly efficiently.  A full
-description was given in “Large-scale cluster management at Google
-with Borg” in EuroSys 2015, and you can read the abstract
-[here](https://ai.google/research/pubs/pub43438).  In 2014, Google
+every application inside Google, highly efficiently.  A [full
+description](https://ai.google/research/pubs/pub43438) was given in “Large-scale cluster management at Google
+with Borg” in EuroSys 2015.  In 2014, Google
 released an open-source version of Borg for public use, called
 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes), or K8s.
 Kubernetes is now widely used in industry for cluster and cloud
