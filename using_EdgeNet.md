@@ -74,7 +74,7 @@ than request direct access to external ports.
 ### Control of a K8s Service
 
 A K8s service is controlled by the user from the command line of
-his personal computer or a web interface, which he can run locally
+his or her personal computer or a web interface, which he or she can run locally
 through localhost or, in the alternative, can be given by the
 provider.  In both cases the developer-facing tool (the web proxy
 or the kubectl command-line program) is the primary means of
