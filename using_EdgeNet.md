@@ -95,8 +95,8 @@ Once run, pods can be entered using the `exec` command, stopped,
 started, exposed as a service, etc., using a command syntax very
 similar to Docker.  One exception is that while Docker containers
 are bound to a single machine, pods are bound to a cluster.
-In fact, to a K8s developer using a native K8s infrastructure, both
-VMs and physical machines are more or less irrelevant; assigning
+In fact, to a K8s developer using a native K8s infrastructure, it is
+more or less irrelevant which VMs or physical machines within a cluster are used; assigning
 pods to VMs or hardware (generally hardware; in a pure K8s environment
 VMs have little value) is the job of the K8s scheduler.
 
