@@ -31,8 +31,8 @@ for people to get familiar with Kubernetes and its use.    Indeed,
 the wide variety of training materials and answers on
 [StackOverflow](https://www.stackoverflow.com) and similar sites
 was a strong motivation for choosing Kubernetes; there are more
-training materials available than there ever were for GENI, SAVI,
-or PlanetLab.   We suggest new users begin with the
+training materials available than there ever were for [GENI](http://www.geni.net/), [SAVI](https://www.savinetwork.ca/),
+or [PlanetLab](https://planet-lab.org/).   We suggest new users begin with the
 [Kubernetes' own tutorials](https://kubernetes.io/docs/tutorials/), though there are many other
 good choices online.  Kubernetes can be run locally using
 [Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/),
