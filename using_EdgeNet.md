@@ -69,6 +69,7 @@ pod names to addresses.  EdgeNet slides can host services on raw
 ports; however, port contention is managed by K8s.  It is strongly
 recommended that EdgeNet users use the name resolution option rather
 than request direct access to external ports.
+<!-- What do we mean by "slide" above? Do we mean "slice", but isn't that a GENI concept? -->
 
 
 ### Control of a K8s Service
