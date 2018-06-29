@@ -80,7 +80,7 @@ provider.  In both cases the developer-facing tool (the web proxy
 or the kubectl command-line program) is the primary means of
 controlling, placing, running, and stopping Kubernetes pods.
 Typically, a pod is declared in a yaml file and created using a
-kubectl command, e.g. 
+kubectl command, e.g.,
 
 ```bash
 $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
