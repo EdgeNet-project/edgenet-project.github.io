@@ -44,7 +44,7 @@ there are Kubernetes profiles available on [CloudLab](https://cloudlab.us).
 
 A K8s deployment is called a service.  An instance of a service is
 called a pod.  A pod is an ensemble of microservices, each of which
-is encapsulated in a Docker Container.   A developer registers his
+is encapsulated in a Docker Container.   A developer registers his or her
 pod  either with the K8s command-line controller or with the web-based
 controller; assignment of pods to worker nodes, which are VMs or physical machines, can be done manually
 or via  the K8s scheduler.
@@ -115,7 +115,7 @@ primarily due to the operator vs developer perspective; GENI defines
 a sliver as a resource which is attached to a slice; K8s defines a
 Pod as a collection of containers which form the unit of instantiable
 functionality for a Service.   To see the difference, note that a
-GENI experimenter who wished to use K8s  to deploy and organize his
+GENI experimenter who wished to use K8s  to deploy and organize his or her
 experiment might make the reasonable choice to deploy each Pod in
 a VM; in this case, GENI would see each Pod as a sliver.  However,
 another reasonable choice, depending upon the resources consumed
@@ -141,7 +141,7 @@ EdgeNet head node.  A user will interact with the EdgeNet head node
 to get access to and configuration information for the EdgeNet head
 node.  Once this is obtained, the user can use the credentials
 supplied by the portal with the EdgeNet head node.  The user interacts
-with the EdgeNet Portal only to get his credentials as a configuration
+with the EdgeNet Portal only to get his or her credentials as a configuration
 file; once this is done, he interacts directly with the EdgeNet
 Head Node, which is a Kubernetes head node.  When you access EdgeNet,
 you'll see a brief welcome screen and a link to use EdgeNet.
