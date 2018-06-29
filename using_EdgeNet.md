@@ -41,16 +41,16 @@ there are Kubernetes profiles available on [CloudLab](https://cloudlab.us).
 
 ## K8s Concepts
 
-A K8s deployment is called a service.  An instance of a service is
-called a pod.  A pod is an ensemble of microservices, each of which
-is encapsulated in a Docker Container.   A developer registers his or her
+A K8s deployment is called a *service*.  An instance of a service is
+called a *pod*.  A pod is an ensemble of microservices, each of which
+is encapsulated in a Docker container.   A developer registers his or her
 pod  either with the K8s command-line controller or with the web-based
-controller; assignment of pods to worker nodes, which are VMs or physical machines, can be done manually
+controller; assignment of pods to *worker nodes*, which are VMs or physical machines, can be done manually
 or via  the K8s scheduler.
-A Daemon Set is a pod instance that should be continuously running;
+A *daemon set* is a pod instance that should be continuously running;
 full-time services are of this form.   Examples are: a persistent,
 multi-tenant, distributed key-value store; or a persistent monitoring
-service.  A Namespace  is  the unit of isolation in K8s.  Namespaces
+service.  A *namespace*  is  the unit of isolation in K8s.  Namespaces
 are groups of mutually-visible K8s services and daemon sets.
 Namespaces are  created by the Kubernetes head node (the equivalent
 of the GENI management node), and refer to a collection of services.
