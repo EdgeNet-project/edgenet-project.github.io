@@ -139,7 +139,7 @@ a GENI *project*.
 The [EdgeNet portal](https://sundewcluster.appspot.com/)
 holds and manages user namespaces and configuration
 files; however, management of the EdgeNet cluster is done by the
-EdgeNet head node.  A user will interact with the EdgeNet head node
+EdgeNet head node.  A user will interact with the EdgeNet portal
 to get access to and configuration information for the EdgeNet head
 node.  Once this is obtained, the user can use the credentials
 supplied by the portal with the EdgeNet head node.  The user interacts
