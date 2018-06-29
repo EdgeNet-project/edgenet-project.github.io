@@ -149,7 +149,7 @@ you'll see a brief welcome screen and a link to use EdgeNet.
 ![Welcome Screen](assets/images/WelcomeScreen.png)
 
 Click on it If you haven't logged in you’ll be asked to login.
-![Login Screen](assets/images/login.png)
+![Login Screen](assets/images/loginScreen.png)
 
 Sign in with your Google account.  Soon, we will offer other login
 options.  Once you’ve signed in, you’ll be requested to agree to
