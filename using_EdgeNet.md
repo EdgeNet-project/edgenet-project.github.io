@@ -5,11 +5,11 @@
 ## The Short Version
 
 EdgeNet is just a distributed [Kubernetes](https://kubernetes.io/)
-cluster.  If you’re familiar with Kubernetes, aka K8s, you can
+cluster.  If you're familiar with Kubernetes, aka K8s, you can
 immediately jump to the sections [K8s Concepts](#k8s-concepts),
 and
 [Navigating the EdgeNet Portal](#navigating-the-edgenet-portal). 
-If you’re not familiar with
+If you're not familiar with
 Kubernetes, read a short description in the next section.
 <!-- [Getting my Kubernetes Configuration](#k8s-config), -->
 
@@ -18,10 +18,11 @@ Kubernetes, read a short description in the next section.
 
 In the beginning, there was Borg.
 
-Borg was Google’s container management system, which ran just about
+Borg was Google's container management system, which ran just about
 every application inside Google, highly efficiently.  A [full
-description](https://ai.google/research/pubs/pub43438) was given in “Large-scale cluster management at Google
-with Borg” in EuroSys 2015.  In 2014, Google
+description](https://ai.google/research/pubs/pub43438) was given in
+"Large-scale cluster management at Google
+with Borg" in EuroSys 2015.  In 2014, Google
 released an open-source version of Borg for public use, called
 [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes), or K8s.
 Kubernetes is now widely used in industry for cluster and cloud
@@ -30,9 +31,11 @@ for people to get familiar with Kubernetes and its use.    Indeed,
 the wide variety of training materials and answers on
 [StackOverflow](https://www.stackoverflow.com) and similar sites
 was a strong motivation for choosing Kubernetes; there are more
-training materials available than there ever were for [GENI](http://www.geni.net/), [SAVI](https://www.savinetwork.ca/),
+training materials available than there ever were for
+[GENI](http://www.geni.net/), [SAVI](https://www.savinetwork.ca/),
 or [PlanetLab](https://planet-lab.org/).   We suggest new users begin with the
-[Kubernetes' own tutorials](https://kubernetes.io/docs/tutorials/), though there are many other
+[Kubernetes' own tutorials](https://kubernetes.io/docs/tutorials/),
+though there are many other
 good choices online.  Kubernetes can be run locally using
 [Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/),
 so you can play with it on your laptop or local server.  In addition,
@@ -45,7 +48,8 @@ A K8s deployment is called a *service*.  An instance of a service is
 called a *pod*.  A pod is an ensemble of microservices, each of which
 is encapsulated in a Docker container.   A developer registers his or her
 pod  either with the K8s command-line controller or with the web-based
-controller; assignment of pods to *worker nodes*, which are VMs or physical machines, can be done manually
+controller; assignment of pods to *worker nodes*, which are VMs or
+physical machines, can be done manually
 or via  the K8s scheduler.
 A *daemon set* is a pod instance that should be continuously running;
 full-time services are of this form.   Examples are: a persistent,
@@ -60,16 +64,15 @@ when the namespace is created.
 
 ### K8s Networking
 
-It’s anticipated that during the execution of a K8s pod, that the
+It's anticipated that during the execution of a K8s pod, that the
 worker node(s) on which the pod is running may fail, or the pod may
 migrate across worker nodes in response to load, latency, external
 demand, and so on.  As a result, K8s pods are not addressed by IP
 address but by service name; the K8s proxy takes care of  resolving
-pod names to addresses.  EdgeNet slides can host services on raw
+pod names to addresses.  EdgeNet can host services on raw
 ports; however, port contention is managed by K8s.  It is strongly
 recommended that EdgeNet users use the name resolution option rather
 than request direct access to external ports.
-<!-- What do we mean by "slide" above? Do we mean "slice", but isn't that a GENI concept? -->
 
 
 ### Control of a K8s Service
@@ -78,10 +81,10 @@ A K8s service is controlled by the user from the command line of
 his or her personal computer or a web interface, which he or she can run locally
 through localhost or, in the alternative, can be given by the
 provider.  In both cases the developer-facing tool (the web proxy
-or the kubectl command-line program) is the primary means of
+or the `kubectl` command-line program) is the primary means of
 controlling, placing, running, and stopping Kubernetes pods.
-Typically, a pod is declared in a yaml file and created using a
-kubectl command, e.g.,
+Typically, a pod is declared in a `yaml` file and created using a
+`kubectl` command, e.g.,
 
 ```bash
 $ kubectl create -f docs/user-guide/walkthrough/pod-nginx.yaml
@@ -108,8 +111,8 @@ For those familiar with [GENI](http://www.geni.net/)
 (others can skip to the [next section](#navigating-the-edgenet-portal)),
 a K8s service corresponds fairly closely to a GENI *slice*.  The major
 difference is one of perspective: a GENI slice is defined from
- the operator’s perspective (it is a bag to which the developer
-attaches resources) rather than from the developer’s (a service is
+ the operator's perspective (it is a bag to which the developer
+attaches resources) rather than from the developer's (a service is
 an organized collection of execution instances which together deliver
 a service to the end-user).  The K8s pod plays a role roughly
 equivalent to a GENI *sliver*.   The rough equivalence is again
@@ -150,7 +153,7 @@ head node, which is a Kubernetes head node.  When you access EdgeNet,
 you'll see a brief welcome screen and a link to use EdgeNet.
 ![Welcome Screen](assets/images/WelcomeScreen.png)
 
-Click on it. If you haven't logged in you’ll be asked to login.
+Click on it. If you haven't logged in you'll be asked to login.
 ![Login Screen](assets/images/loginScreen.png)
 
 Sign in with your Google account.  Soon, we will offer other login
@@ -158,7 +161,7 @@ options.  Once you have signed in, you will be requested to agree to
 the acceptable use policy ![AUP](assets/images/AUP.png) ![AUP
 Agreement](assets/images/AUP_agree.png)
 
-Click “Agree”.  At that point, you will be pending Administrator
+Click "Agree".  At that point, you will be pending Administrator
 Approval ![Pending Approval](assets/images/pending.png)
 
 Once your account is approved, you will be able to download your
@@ -171,20 +174,20 @@ Note the name of your namespace!  This is extremely important.
 Generally, it will be your email address with `@` and `.` turned into
 `-`; so `rick.mcgeer@us-ignite.org` becomes `rick-mcgeer-us-ignite-org`.
 Now download the configuration file and store it somewhere reasonable
-on your computer, and click on “EdgeNet Head Node”.  **_From here
+on your computer, and click on "EdgeNet Head Node".  **_From here
 on out, you are working with the Kubernetes Head Node!_**
 
-Once you’ve clicked, you will see this screen:
+Once you've clicked, you will see this screen:
 
 
 Sorry about the error messages in orange.  We are working to get
 rid of them.  You are in the default namespace, where you have no
 permissions.  Click on the namespace name (middle of the left-hand
 side) and type in the namespace name you saw in the welcome page.
-You’ll see this
+You'll see this
 
 More error messages (again, working to get rid of them).  Click
 them away, and then you will see this:
 
-Cool.  You now have a Kubernetes head node, and if you’ve done the
+Cool.  You now have a Kubernetes head node, and if you've done the
 Kubernetes tutorials you know what to do next.  Have fun.
