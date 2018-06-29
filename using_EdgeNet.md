@@ -105,15 +105,15 @@ VMs have little value) is the job of the K8s scheduler.
 
 For those familiar with [GENI](http://www.geni.net/)
 (others can skip to the [next section](#navigating-the-edgenet-portal)),
-a K8s service corresponds fairly closely to a GENI Slice.  The major
-difference is one of perspective: a GENI Slice is defined in terms
-of the operator’s perspective (it is a bag to which the developer
+a K8s service corresponds fairly closely to a GENI *slice*.  The major
+difference is one of perspective: a GENI slice is defined from
+ the operator’s perspective (it is a bag to which the developer
 attaches resources) rather than from the developer’s (a service is
 an organized collection of execution instances which together deliver
 a service to the end-user).  The K8s pod plays a role roughly
-equivalent to a GENI sliver.   The rough equivalence is again
+equivalent to a GENI *sliver*.   The rough equivalence is again
 primarily due to the operator vs developer perspective; GENI defines
-a sliver as a resource which is attached to a slice; K8s defines a
+a sliver as a resource that is attached to a slice; K8s defines a
 pod as a collection of containers which form the unit of instantiable
 functionality for a service.   To see the difference, note that a
 GENI experimenter who wished to use K8s  to deploy and organize his or her
@@ -125,13 +125,13 @@ preferred option when the resources demanded by a pod are relatively
 modest: not only is it much more resource-efficient, a pod spins
 up very rapidly, on the order of seconds; in contrast, spinning up
 a VM on GENI takes about 15 minutes.   In this case, GENI would
-continue to regard the VM as a sliver and the pods, which form the
+continue to regard the VM as a sliver, and the pods, which form the
 actual unit of the service, are transparent to GENI.
 
 The unit of tenancy in K8s is the *namespace*; this is a collection
 of pods that can be accessed through a single authorization
 certificate, and for our purposes can be regarded as isomorphic to
-a GENI Project.
+a GENI *project*.
 
 
 # Navigating the EdgeNet Portal
