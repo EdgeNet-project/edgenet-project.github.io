@@ -103,7 +103,9 @@ VMs have little value) is the job of the K8s scheduler.
 
 ## Mapping GENI Concepts to K8s
 
-A K8s service corresponds fairly closely to a GENI Slice.  The major
+For those familiar with [GENI](http://www.geni.net/)
+(others can skip to the [next section](#navigating-the-edgenet-portal)),
+a K8s service corresponds fairly closely to a GENI Slice.  The major
 difference is one of perspective: a GENI Slice is defined in terms
 of the operator’s perspective (it is a bag to which the developer
 attaches resources) rather than from the developer’s (a service is
