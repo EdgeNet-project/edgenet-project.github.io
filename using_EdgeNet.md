@@ -142,18 +142,18 @@ EdgeNet head node.  A user will interact with the EdgeNet head node
 to get access to and configuration information for the EdgeNet head
 node.  Once this is obtained, the user can use the credentials
 supplied by the portal with the EdgeNet head node.  The user interacts
-with the EdgeNet Portal only to get his or her credentials as a configuration
-file; once this is done, he interacts directly with the EdgeNet
-Head Node, which is a Kubernetes head node.  When you access EdgeNet,
+with the EdgeNet portal only to get his or her credentials as a configuration
+file; once this is done, he or she interacts directly with the EdgeNet
+head node, which is a Kubernetes head node.  When you access EdgeNet,
 you'll see a brief welcome screen and a link to use EdgeNet.
 ![Welcome Screen](assets/images/WelcomeScreen.png)
 
-Click on it If you haven't logged in you’ll be asked to login.
+Click on it. If you haven't logged in you’ll be asked to login.
 ![Login Screen](assets/images/loginScreen.png)
 
 Sign in with your Google account.  Soon, we will offer other login
-options.  Once you’ve signed in, you’ll be requested to agree to
-the Acceptable Use Policy ![AUP](assets/images/AUP.png) ![AUP
+options.  Once you have signed in, you will be requested to agree to
+the acceptable use policy ![AUP](assets/images/AUP.png) ![AUP
 Agreement](assets/images/AUP_agree.png)
 
 Click “Agree”.  At that point, you will be pending Administrator
