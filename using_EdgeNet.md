@@ -103,17 +103,17 @@ VMs have little value) is the job of the K8s scheduler.
 
 ## Mapping GENI Concepts to K8s
 
-A K8s Service corresponds fairly closely to a GENI Slice.  The major
+A K8s service corresponds fairly closely to a GENI Slice.  The major
 difference is one of perspective: a GENI Slice is defined in terms
 of the operator’s perspective (it is a bag to which the developer
-attaches resources) rather than from the developer’s (a Service is
+attaches resources) rather than from the developer’s (a service is
 an organized collection of execution instances which together deliver
 a service to the end-user).  The K8s pod plays a role roughly
 equivalent to a GENI sliver.   The rough equivalence is again
 primarily due to the operator vs developer perspective; GENI defines
 a sliver as a resource which is attached to a slice; K8s defines a
 pod as a collection of containers which form the unit of instantiable
-functionality for a Service.   To see the difference, note that a
+functionality for a service.   To see the difference, note that a
 GENI experimenter who wished to use K8s  to deploy and organize his or her
 experiment might make the reasonable choice to deploy each pod in
 a VM; in this case, GENI would see each pod as a sliver.  However,
