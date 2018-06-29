@@ -35,7 +35,7 @@ training materials available than there ever were for GENI, SAVI,
 or PlanetLab.   We suggest new users begin with the
 [Google tutorials](https://kubernetes.io.docs), though there are many other
 good choices online.  Kubernetes can be run locally using
-[Minikube](https://kubernetes.io/docs/.getting-started-guides/minikube/),
+[Minikube](https://kubernetes.io/docs/getting-started-guides/minikube/),
 so you can play with it on your laptop or local server.  In addition,
 there are Kubernetes profiles available on [CloudLab](https://cloudlab.us).
 
