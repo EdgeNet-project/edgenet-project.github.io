@@ -1,34 +1,32 @@
 ---
 ---
-# Hello, World, on EdgeNet
-In this tutorial, we're going to show you how to deploy a minimal experiment across EdgeNet and use it.  This tutorial assumes that you're using some Unix-derived system, such as Linux, Max OSX, or a Linux-based VM on Windows.  It's likely a cygwin environment will work on Windows as well, but I haven't tried that.
-## Have on Hand
-Software you should have installed to run this tutorial:
+# Hello, World!, on EdgeNet
+In this tutorial, we're going to show you how to deploy a minimal experiment across EdgeNet and use it.  This tutorial assumes that you're using a Unix-derived system, such as Linux, Mac OS X, or a Linux-based VM on Windows.  It's likely a cygwin environment will work on Windows as well, but we haven't tested it. It assumes that you have Python 2.7 installed on your system.
 
-1. [Docker](https://www.docker.com/)
-2. [node.js](https://nodejs.org/en/)
+## What You Will Do
+You will create a custom image and deploy it to EdgeNet nodes around the world. The image will contain a simple web server that you write that provides the following interaction: navigating to it with the query string `hello?hostname=foo` will return a page with the text `Hello, World, from foo!`. A script on your own machine will navigate to each of the web servers and collect the responses.
 
-Very helpful:
+## Technologies You Will Use
+The technologies that you will use are:
 
-1. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). This is to control and query Kubernetes from your desktop rather than use the dashboard, though you can do everything on the dashboard.
-2. [Minikube](https://kubernetes.io/docs/setup/minikube/). This lets you run a Kubernetes cluster on your laptop, very handy for testing.
+1. [node.js](https://nodejs.org/en/), to write the web server
+2. [Docker](https://www.docker.com/), to containerize the web server
+3. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
+4. [Python](https://www.python.org/), for the script to query the web servers
 
-As a note, node.js isn't essential.  We're just going to write a simple request/response HTTP server to do Hello, World, so if you prefer another server feel free.  It just need to serve a get request with an argument, and echo back the argument.
+## Prepare
+Create accounts:
+1. EdgeNet (see [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)), making a note of your namespace
+2. [Docker Hub](https://hub.docker.com/), a convenient place from which to pull Docker images onto your services
 
-## Read Ahead of Time
+Install software:
+1. [node.js](https://nodejs.org/en/) to write your web server
+2. [Docker](https://www.docker.com/) to launch Docker operations from the command line.
+3. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) to control a Kubernetes cluster from the command line
 
-1. [Hello, Minikube](https://kubernetes.io/docs/tutorials/hello-minikube/)
-2. [Hello, World in Kubernetes](https://kubernetes-v1-4.github.io/docs/hellonode/)
-3. [Docker Tutorial](https://docs.docker.com/get-started/)
-4. [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)
-
-You should also be familiar enough with node.js or whatever server you've chosen that you can write a simple request/response server in it.   We won't be covering how to do that here.
-
-## Preparation
-
-1. Download your config file from the portal and save a copy as $HOME/.kube/config.  This is where Kubernetes looks for a configuration file.  (see [Using EdgeNet](https://edge-net.org/using_EdgeNet.html) for how to download a config file)/
-2. Run `$ kubectl get ns` if you've installed kubectl to make sure that you're talking to the right cluster.
-3. Ensure that you have a [Docker Hub](https://hub.docker.com/) account.  Docker is used to pull images onto your Services and Docker Hub is an extremely convenient place to pull from.
+Download and test:
+1. Download your config file from the portal (see [Using EdgeNet](https://edge-net.org/using_EdgeNet.html) and save a copy as `$HOME/.kube/config`. Create the `.kube` directory, which is where Kubernetes looks for a configuration file, if you do not already have one.
+2. Run `$ kubectl get ns` to make sure that you're talking to the right cluster.
 
 ## Write and Test Your Server
 This section assumes that we're using node.js as the server.  If you are not using node.js, modify this section for the server that you're using.  We used the following code:
@@ -353,6 +351,12 @@ northwestern.edge-net.io | Hello, World, from northwestern! | 147
 hawaii.edge-net.io | Hello, World, from hawaii! | 132
 
 
+## Suggested Future Reading
+Here are some starting points for you to further explore the technologies used in this tutorial, and related technologies:
+1. [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)
+2. [Docker Tutorial](https://docs.docker.com/get-started/)
+3. [Hello, World in Kubernetes](https://kubernetes-v1-4.github.io/docs/hellonode/)
+4. [Hello, Minikube](https://kubernetes.io/docs/tutorials/hello-minikube/); Minikube allows you to run Kubernetes on your local machine
 
 
 
