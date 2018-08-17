@@ -170,9 +170,13 @@ configuration file.
 ![Dashboard](assets/images/dashboard.png)
 
 
-Note the name of your namespace!  This is extremely important.
-Generally, it will be your email address with `@` and `.` turned into
-`-`; so `rick.mcgeer@us-ignite.org` becomes `rick-mcgeer-us-ignite-org`.
+Note the name of your namespace!  This is extremely important, as
+things will only work for you if you specify your namespace, rather
+than the default namespace, on the EdgeNet head node. The EdgeNet
+portal informs you of the name of your namespace, as shown here:
+
+![Namespace](assets/images/namespace.png)
+
 Now download the configuration file and store it somewhere reasonable
 on your computer, and click on "EdgeNet Head Node".  **_From here
 on out, you are working with the Kubernetes Head Node!_**
