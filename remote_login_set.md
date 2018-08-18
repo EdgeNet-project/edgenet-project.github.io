@@ -16,17 +16,24 @@ container that contains the ping and traceroute commands. You will deploy
 replicas of that pod across EdgeNet. You will then be able to log into
 these replicas and conduct pings and traceroutes.
 
-## What You Will Do
+## What You Will Do and What You Will Learn
 You will create a vanilla CentOS image and install the `ping` and 
 `traceroute` tools on it. You will deploy this image to EdgeNet nodes
 around the world. You will then log in to one or more nodes and
 conduct measurements from those nodes.
 
-## Technologies You Will Use
+Following this tutorial, you will have the skills necessary to create
+a Linux container, install the software that you like via a package
+manager, and save the container as a Docker image for later deployment.
+You will be able to deploy that image and log into instances of it
+and use the software from each instance.
+
+## Technologies That You Will Use
 The technologies that you will use are:
 
 1. [Docker](https://www.docker.com/), to create your container
-2. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
+2. [RPM] (https://rpm.org/), to install the software in the container 
+3. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
 
 ## Prepare
 Create accounts:
