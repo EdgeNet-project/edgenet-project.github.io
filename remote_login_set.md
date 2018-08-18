@@ -1,12 +1,22 @@
 ---
 ---
-# Hello, World, on EdgeNet
-In this tutorial, we're going to show you how to deploy a minimal
-experiment across EdgeNet and use it.  This tutorial assumes that you're
-using a Unix-derived system, such as Linux, macOS, or a Linux-based
-VM on Windows. (It's likely a Cygwin environment will work on Windows as
-well, but we haven't tested it.) The tutorial assumes that you have
-[Python 2.7](https://www.python.org/downloads/) installed on your system.
+# A Remote Login Set on EdgeNet
+A main value proposition of EdgeNet is that it provides nodes that are
+scattered across the internet, offering both topological and geographic
+diversity. Different sorts of users will want to take advantage of this
+diversity in different ways. This tutorial focuses on the user who wishes
+to log into vantage points across the internet, in order to launch various
+tools at the command line. An archetypal user of this sort might be a
+student in a computer networking course who is conducting lab exercises
+in network measurements. They want to conduct pings and traceroutes from a
+variety of locations.
+
+In this tutorial, you will create a Kubernetes pod that consists of a simple
+container that contains the ping and traceroute commands. You will deploy
+replicas of that pod across EdgeNet. You will then be able to log into
+these replicas and conduct pings and traceroutes.
+
+XXX
 
 ## What You Will Do
 You will create a custom image and deploy it to EdgeNet nodes around the
