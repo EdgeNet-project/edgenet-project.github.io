@@ -16,23 +16,17 @@ container that contains the ping and traceroute commands. You will deploy
 replicas of that pod across EdgeNet. You will then be able to log into
 these replicas and conduct pings and traceroutes.
 
-XXX
-
 ## What You Will Do
-You will create a custom image and deploy it to EdgeNet nodes around the
-world. The image will contain a simple web server that you write that
-provides the following interaction: navigating to it with the query
-string `hello?hostname=foo` will return a page with the text `Hello,
-World, from foo!`. A script on your own machine will navigate to each of
-the web servers and collect the responses.
+You will create a vanilla CentOS image and install the `ping` and 
+`traceroute` tools on it. You will deploy this image to EdgeNet nodes
+around the world. You will then log in to one or more nodes and
+conduct measurements from those nodes.
 
 ## Technologies You Will Use
 The technologies that you will use are:
 
-1. [node.js](https://nodejs.org/en/), to write the web server
-2. [Docker](https://www.docker.com/), to containerize the web server
-3. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
-4. [Python](https://www.python.org/), for the script to query the web servers
+1. [Docker](https://www.docker.com/), to create your container
+2. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
 
 ## Prepare
 Create accounts:
@@ -42,10 +36,9 @@ Create accounts:
   to pull Docker images onto your services
 
 Install software:
-1. [node.js](https://nodejs.org/en/) to write your web server
-2. [Docker](https://www.docker.com/) to launch Docker operations from
+1. [Docker](https://www.docker.com/) to launch Docker operations from
   the command line.
-3. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+2. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   to control a Kubernetes cluster from the command line
 
 Download and test:
@@ -55,6 +48,8 @@ Download and test:
   already have one.
 2. Run `$ kubectl get ns` to make sure that you're talking to the right cluster.
 
+
+XXX
 
 ## Write and Test Your Server
 This section assumes that we're using node.js as the server.  If you are
