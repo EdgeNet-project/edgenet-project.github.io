@@ -59,16 +59,16 @@ Download and test:
 * Log in to Docker Hub, if starting Docker did not already log you in.
 * At the command line, create a CentOS container with `docker create centos`.
 
-The name `centos` identifies the [latest version of the official CentOS build](https://hub.docker.com/_/centos/) in the Docker Hub official repository. Providing the latest image is not already on your computer, you will see output like the following while Docker downloads and prepares the image:
+The name `centos` identifies the [latest version of the official CentOS build](https://hub.docker.com/_/centos/) in the Docker Hub official repository. You will see output like the following while Docker downloads and prepares the image:
 
 ```
+$ docker create centos
 Unable to find image 'centos:latest' locally
 latest: Pulling from library/centos
-256b176beaff: Downloading [==============================================>    ]  69.64MB/74.69MB
 256b176beaff: Pull complete
 Digest: sha256:6f6d986d425aeabdc3a02cb61c02abb2e78e57357e92417d6d58332856024faf
 Status: Downloaded newer image for centos:latest
-9adc1e1e0a89b9bad496cf8216eacf100b073b57517882b9260456fc3bceeada
+fb01e9909aad5525c2fc3921654e6bb2a030d26ae8b24351f68732ca376920c1
 $
 ```
 
