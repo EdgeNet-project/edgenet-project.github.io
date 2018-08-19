@@ -1,26 +1,24 @@
 ---
 ---
-# A Remote Login Set on EdgeNet
+# Tutorial: Create a Set of EdgeNet Containers That You Can Access Via Remote Login
 A main value proposition of EdgeNet is that it provides nodes that are
 scattered across the internet, offering both topological and geographic
-diversity. Different sorts of users will want to take advantage of this
-diversity in different ways. This tutorial focuses on the user who wishes
-to log into vantage points across the internet, in order to launch various
-tools at the command line. An archetypal user of this sort might be a
-student in a computer networking course who is conducting lab exercises
-in network measurements. They want to conduct pings and traceroutes from a
-variety of locations.
+diversity. This tutorial focuses on the user whose workflow consists of
+logging into containers and launching tools at the command line. An
+archetypal user of this sort is a student in a computer networking course
+who is carrying out lab exercises in network measurements. They want to conduct
+pings and traceroutes from a variety of vantage points.
 
 In this tutorial, you will create a Kubernetes pod that consists of a simple
-container that contains the ping and traceroute commands. You will deploy
-replicas of that pod across EdgeNet. You will then be able to log into
+container in which the `ping` and `traceroute` tools have been installed. You will
+deploy replicas of the pod across EdgeNet. You will then be able to log into
 these replicas and conduct pings and traceroutes.
 
 ## What You Will Do and What You Will Learn
-You will create a vanilla CentOS image and install the `ping` and 
-`traceroute` tools on it. You will deploy this image to EdgeNet nodes
-around the world. You will then log in to one or more nodes and
-conduct measurements from those nodes.
+You will create a vanilla CentOS container and install the `ping` and 
+`traceroute` tools in it. You will deploy this container to EdgeNet nodes
+around the world. You will then log in to one or more containers and
+conduct measurements from the vantage points that they provide.
 
 Following this tutorial, you will have the skills necessary to create
 a Linux container, install the software that you like via a package
