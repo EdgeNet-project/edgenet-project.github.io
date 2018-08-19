@@ -53,27 +53,20 @@ Download and test:
   already have one.
 2. Run `$ kubectl get ns` to make sure that you're talking to the right cluster.
 
+## Create Your Container
+
+* Start Docker on your computer.
+* Log in to Docker Hub, if starting Docker did not already log you in.
+* At the command line, create a CentOS container with `docker create centos`.
+
+The name `centos` identifies the [latest version of the official CentOS build](https://hub.docker.com/_/centos/) in the Docker Hub official repository. Providing the image is not already on your computer, you will see output like the following while Docker downloads and prepares the image:
+
+```shell
+Unable to find image 'centos:latest' locally
+latest: Pulling from library/centos
+```
 
 XXX
-
-## Write and Test Your Server
-This section assumes that we're using node.js as the server.  If you are
-not using node.js, modify this section for the server that you're using.
-We used the following code:
-
-```javascript
-const http = require('http');
-const url = require('url');
-const port = 8080; // note: you should modify this because at the moment we haven't taken care of port contention
-const handleRequest = function(request, response) {
-  const parsedRequest = url.parse(request.url, true);
-  
-  response.writeHead(200);
-  response.end("Hello, World, from " + parsedRequest.query.hostname +"!\n");
-}
-var www = http.createServer(handleRequest);
-www.listen(port);
-```
 
 Save the file in `server.js`.
 
