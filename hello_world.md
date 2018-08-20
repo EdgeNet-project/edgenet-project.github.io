@@ -443,7 +443,7 @@ Here are some starting points for you to further explore the
 technologies used in this tutorial, and related technologies:
 1. [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)
 2. [Docker Tutorial](https://docs.docker.com/get-started/)
-3. [Hello, World in Kubernetes](https://kubernetes-v1-4.github.io/docs/hellonode/)
+3. [Hello, World in Kubernetes](https://kubernetes.io/docs/tutorials/hello-minikube/)
 4. [Hello, Minikube](https://kubernetes.io/docs/tutorials/hello-minikube/);
   Minikube allows you to run Kubernetes on your local machine.
 
