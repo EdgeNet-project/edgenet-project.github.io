@@ -30,7 +30,7 @@ and use the software from each instance.
 The technologies that you will use are:
 
 1. [Docker](https://www.docker.com/), to create your container
-2. [RPM] (https://rpm.org/), to install the software in the container 
+2. [RPM](https://rpm.org/), to install the software in the container 
 3. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
 
 ## Prepare
