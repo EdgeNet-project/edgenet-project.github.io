@@ -1,6 +1,6 @@
 ---
 ---
-# Tutorial: Create a Set of EdgeNet Containers That You Can Access Via Remote Login
+# Tutorial: A Set of Remote Login EdgeNet Containers 
 A main value proposition of EdgeNet is that it provides nodes that are
 scattered across the internet, offering both topological and geographic
 diversity. This tutorial focuses on the user whose workflow consists of
@@ -72,17 +72,25 @@ fb01e9909aad5525c2fc3921654e6bb2a030d26ae8b24351f68732ca376920c1
 $
 ```
 
+You should now be able to see the image amongst your Docker images in a listing like the following:
+
+```
+$ docker images
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+centos                             latest              5182e96772bf        13 days ago         200MB
+perfsonar/testpoint                latest              ca3e8e2af3db        2 months ago        919MB
+node                               4.4                 93b396996a16        2 years ago         648MB
+$
+```
+
+## Run Your Container Locally
+
+* At the command line, run the CentOS container with `docker run -dit centos`.
+* Log into your container with `docker attach centos`.
+
+
 XXX
 
-Save the file in `server.js`.
-
-
-_Warning!_  Use Javascript constructs with some care.  In particular,
-don't use modern ECMAScript constructs such as '=>' for functions unless
-you're prepared to control the node.js version in your Docker container.
-See below.
-
-Test the server by running
 
 ```bash 
 $ node server.js
