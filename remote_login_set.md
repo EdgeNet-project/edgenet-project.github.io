@@ -118,69 +118,41 @@ If you are curious about the command line options for `docker run`:
 
 With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. Similarly, if you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
 
-## Install `traceroute`
+## Install `paris-traceroute`
 
-In what follows, you'll want to be careful not to kill your running container, so as not to lose your work.
+In what follows, you will want to be careful not to kill your running container, so as not to lose your work.
 
 * If not already logged in to the container, do so now with `docker attach <container ID>`, using the container ID that you see in `docker ps` output.
-* At the command line in the container, install traceroute: `yum install -y traceroute`. The `-y` option automatically accepts all default options so you will not need to reply to interactive queries during installation.
-* Try out traceroute with a command like `traceroute google.com`.
+* From the command line in the container, download the `paris-traceroute` package and the `libparistraceroute` package on which it depends:
+   * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm`
+   * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm`
+* Install these packages:
+   * `rpm -Uvh libparistraceroute-0.9-1.fc20.x86_64.rpm`
+   * `rpm -Uvh paris-traceroute-0.9-1.fc20.x86_64.rpm`
+* Try out the tool with a command like `paris-traceroute -amda www.google.com` 
+
+The command line options for `curl` are:
+* `-O` (a capital letter O) to write the output to a file
+* `-k` to allow a connection to a website that doesn't have a valid certificate
 
 Your installation of traceroute should look much like this:
 ```
-traceroute:[root@8922cd313f37 /]# yum install -y traceroute
-Loaded plugins: fastestmirror, ovl
-Determining fastest mirrors
- * base: linux.cc.lehigh.edu
- * extras: centos.mirror.constant.com
- * updates: mirror.umd.edu
-base                                                                                                                                                     | 3.6 kB  00:00:00
-extras                                                                                                                                                   | 3.4 kB  00:00:00
-updates                                                                                                                                                  | 3.4 kB  00:00:00
-(1/4): extras/7/x86_64/primary_db                                                                                                                        | 174 kB  00:00:00
-(2/4): base/7/x86_64/group_gz                                                                                                                            | 166 kB  00:00:00
-(3/4): updates/7/x86_64/primary_db                                                                                                                       | 5.0 MB  00:00:01
-(4/4): base/7/x86_64/primary_db                                                                                                                          | 5.9 MB  00:00:06
-Resolving Dependencies
---> Running transaction check
----> Package traceroute.x86_64 3:2.0.22-2.el7 will be installed
---> Finished Dependency Resolution
-
-Dependencies Resolved
-
-================================================================================================================================================================================
- Package                                    Arch                                   Version                                           Repository                            Size
-================================================================================================================================================================================
-Installing:
- traceroute                                 x86_64                                 3:2.0.22-2.el7                                    base                                  59 k
-
-Transaction Summary
-================================================================================================================================================================================
-Install  1 Package
-
-Total download size: 59 k
-Installed size: 92 k
-Downloading packages:
-warning: /var/cache/yum/x86_64/7/base/packages/traceroute-2.0.22-2.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
-Public key for traceroute-2.0.22-2.el7.x86_64.rpm is not installed
-traceroute-2.0.22-2.el7.x86_64.rpm                                                                                                                       |  59 kB  00:00:00
-Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-Importing GPG key 0xF4A80EB5:
- Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
- Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
- Package    : centos-release-7-5.1804.1.el7.centos.x86_64 (@Updates)
- From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-Running transaction check
-Running transaction test
-Transaction test succeeded
-Running transaction
-  Installing : 3:traceroute-2.0.22-2.el7.x86_64                                                                                                                             1/1
-  Verifying  : 3:traceroute-2.0.22-2.el7.x86_64                                                                                                                             1/1
-
-Installed:
-  traceroute.x86_64 3:2.0.22-2.el7
-
-Complete!
+[root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  108k  100  108k    0     0  98071      0  0:00:01  0:00:01 --:--:-- 98117
+[root@8922cd313f37 /]# rpm -Uvh libparistraceroute-0.9-1.fc20.x86_64.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:libparistraceroute-0.9-1.fc20    ################################# [100%]
+[root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 10928  100 10928    0     0   7748      0  0:00:01  0:00:01 --:--:--  7750
+[root@8922cd313f37 /]# rpm -Uvh paris-traceroute-0.9-1.fc20.x86_64.rpm
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:paris-traceroute-0.9-1.fc20      ################################# [100%]
 [root@8922cd313f37 /]#
 ```
 
