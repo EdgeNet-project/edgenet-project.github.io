@@ -111,27 +111,16 @@ If you are curious about the command line options for `docker run`:
 * `-d` starts the image in "detached mode". If you were to run the container without this option, you would be logged into it directly.
 * `-t` and `-i` together allocate a tty as the primary process and keep STDIN open. By default in this case, the tty provides a Bash shell.
 
-With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. If you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
+With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. Similarly, if you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
+
+## Install `ping` and `traceroute`
+
+
 
 XXX
 
 
-```bash 
-$ node server.js
-```
 
-and then, in any browser, go to `http://localhost:8080/hello?hostname=foo`.
-You should see `Hello, World, from foo!`.  You can also try 
-
-```bash
-$ curl http://localhost:8080/hello?hostname=foo
-``` 
-and you should see the same thing.
-
-_Note_: in the above, change 8080 to whatever random port you picked for
-your server.
-
-Kill the server and go on to the next step.
 
 ## Build, Test, and Push the Docker File
 The next step is to containerize the *Hello, World* application, test it,
