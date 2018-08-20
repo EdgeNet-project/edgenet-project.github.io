@@ -85,9 +85,33 @@ $
 
 ## Run Your Container Locally
 
-* At the command line, run the CentOS container with `docker run -dit centos`.
-* Log into your container with `docker attach centos`.
+* At the command line, run the CentOS image with a Bash shell: `docker run -dit centos`.
+* Verify that it is running and obtain its container ID by examining the output of `docker ps`.
+* Log into your container with `docker attach <container ID>`, substituting the container ID for `<container ID>`.
 
+Here is an example of a session in which we run the container, log into it, check the system version, and detach using Ctrl-p Ctrl-q (key strokes not visible) so as not to kill the Bash shell:
+
+```
+$ docker run -dit centos
+8922cd313f377e59cc6030f73a12d4b7a100151c00aff7447073b2d7c6326db5
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+8922cd313f37        centos              "/bin/bash"         6 seconds ago       Up 5 seconds                            quizzical_yonath
+$ docker attach 8922cd313f37
+[root@8922cd313f37 /]# cat /etc/system-release
+CentOS Linux release 7.5.1804 (Core)
+[root@8922cd313f37 /]#
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS              PORTS               NAMES
+8922cd313f37        centos              "/bin/bash"         About a minute ago   Up About a minute                       quizzical_yonath
+$
+```
+
+If you are curious about the command line options for `docker run`: 
+* `-d` starts the image in "detached mode". If you were to run the container without this option, you would be logged into it directly.
+* `-t` and `-i` together allocate a tty as the primary process and keep STDIN open. By default in this case, the tty provides a Bash shell.
+
+With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. If you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
 
 XXX
 
