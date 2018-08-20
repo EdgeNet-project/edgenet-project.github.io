@@ -10,13 +10,13 @@ who is carrying out lab exercises in network measurements. They want to conduct
 pings and traceroutes from a variety of vantage points.
 
 In this tutorial, you will create a Kubernetes pod that consists of a simple
-container in which the `ping` and `traceroute` tools have been installed. You will
+container in which you will install the `traceroute` tool. You will
 deploy replicas of the pod across EdgeNet. You will then be able to log into
-these replicas and conduct pings and traceroutes.
+these replicas and conduct pings (natively installed) and traceroutes.
 
 ## What You Will Do and What You Will Learn
-You will create a vanilla CentOS container and install the `ping` and 
-`traceroute` tools in it. You will deploy this container to EdgeNet nodes
+You will create a vanilla CentOS container and install the 
+`traceroute` tool in it. You will deploy this container to EdgeNet nodes
 around the world. You will then log in to one or more containers and
 conduct measurements from the vantage points that they provide.
 
@@ -113,8 +113,92 @@ If you are curious about the command line options for `docker run`:
 
 With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. Similarly, if you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
 
-## Install `ping` and `traceroute`
+## Install `traceroute`
 
+In what follows, you'll want to be careful not to kill your running container, so as not to lose your work.
+
+* If not already logged in to the container, do so now with `docker attach <container ID>`, using the container ID that you see in `docker ps` output.
+* At the command line in the container, install traceroute: `yum install -y traceroute`. The `-y` option automatically accepts all default options so you will not need to reply to interactive queries during installation.
+* Try out traceroute with a command like `traceroute google.com`.
+
+Your installation of traceroute should look much like this:
+```
+traceroute:[root@8922cd313f37 /]# yum install -y traceroute
+Loaded plugins: fastestmirror, ovl
+Determining fastest mirrors
+ * base: linux.cc.lehigh.edu
+ * extras: centos.mirror.constant.com
+ * updates: mirror.umd.edu
+base                                                                                                                                                     | 3.6 kB  00:00:00
+extras                                                                                                                                                   | 3.4 kB  00:00:00
+updates                                                                                                                                                  | 3.4 kB  00:00:00
+(1/4): extras/7/x86_64/primary_db                                                                                                                        | 174 kB  00:00:00
+(2/4): base/7/x86_64/group_gz                                                                                                                            | 166 kB  00:00:00
+(3/4): updates/7/x86_64/primary_db                                                                                                                       | 5.0 MB  00:00:01
+(4/4): base/7/x86_64/primary_db                                                                                                                          | 5.9 MB  00:00:06
+Resolving Dependencies
+--> Running transaction check
+---> Package traceroute.x86_64 3:2.0.22-2.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================================================
+ Package                                    Arch                                   Version                                           Repository                            Size
+================================================================================================================================================================================
+Installing:
+ traceroute                                 x86_64                                 3:2.0.22-2.el7                                    base                                  59 k
+
+Transaction Summary
+================================================================================================================================================================================
+Install  1 Package
+
+Total download size: 59 k
+Installed size: 92 k
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/base/packages/traceroute-2.0.22-2.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for traceroute-2.0.22-2.el7.x86_64.rpm is not installed
+traceroute-2.0.22-2.el7.x86_64.rpm                                                                                                                       |  59 kB  00:00:00
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-5.1804.1.el7.centos.x86_64 (@Updates)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 3:traceroute-2.0.22-2.el7.x86_64                                                                                                                             1/1
+  Verifying  : 3:traceroute-2.0.22-2.el7.x86_64                                                                                                                             1/1
+
+Installed:
+  traceroute.x86_64 3:2.0.22-2.el7
+
+Complete!
+[root@8922cd313f37 /]#
+```
+
+And here is a run of `traceroute` (yours will certainly differ):
+```
+[root@8922cd313f37 /]# traceroute google.com
+traceroute to google.com (172.217.12.142), 30 hops max, 60 byte packets
+ 1  gateway (172.17.0.1)  0.072 ms  0.049 ms  0.094 ms
+ 2  192.168.1.1 (192.168.1.1)  5.792 ms  5.592 ms  5.757 ms
+ 3  * * *
+ 4  agg63.ulpkny0101h.nyc.rr.com (24.164.160.40)  502.109 ms  501.951 ms  501.897 ms
+ 5  agg27.nwbrnycx01r.nyc.rr.com (24.164.165.126)  39.668 ms  36.048 ms  39.866 ms
+ 6  agg64.nyclnyrg01r.nyc.rr.com (24.164.164.252)  46.686 ms  35.031 ms  39.204 ms
+ 7  bu-ether29.nwrknjmd67w-bcr00.tbone.rr.com (107.14.19.24)  39.238 ms bu-ether19.nwrknjmd67w-bcr00.tbone.rr.com (66.109.6.78)  35.778 ms bu-ether29.nwrknjmd67w-bcr00.tbone.rr.com (107.14.19.24)  40.347 ms
+ 8  bu-ether12.nycmny837aw-bcr00.tbone.rr.com (66.109.6.27)  99.508 ms 66.109.5.138 (66.109.5.138)  85.996 ms  82.777 ms
+ 9  0.ae0.pr0.nyc20.tbone.rr.com (66.109.6.157)  71.002 ms 0.ae4.pr0.nyc20.tbone.rr.com (66.109.1.35)  79.712 ms 0.ae1.pr0.nyc20.tbone.rr.com (66.109.6.163)  75.261 ms
+10  ix-ae-10-0.tcore1.n75-new-york.as6453.net (66.110.96.13)  74.470 ms ix-ae-6-0.tcore1.n75-new-york.as6453.net (66.110.96.53)  74.611 ms ix-ae-10-0.tcore1.n75-new-york.as6453.net (66.110.96.13)  74.187 ms
+11  72.14.195.232 (72.14.195.232)  69.966 ms  21.187 ms  27.020 ms
+12  108.170.248.97 (108.170.248.97)  24.544 ms  23.546 ms  31.663 ms
+13  108.170.227.209 (108.170.227.209)  31.387 ms 108.170.227.211 (108.170.227.211)  23.713 ms 108.170.227.209 (108.170.227.209)  31.395 ms
+14  lga34s19-in-f14.1e100.net (172.217.12.142)  30.814 ms  30.702 ms  28.360 ms
+[root@8922cd313f37 /]#
+```
 
 
 XXX
