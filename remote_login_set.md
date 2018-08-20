@@ -127,32 +127,34 @@ In what follows, you will want to be careful not to kill your running container,
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm`
 * Install these packages:
-   * `rpm -Uvh libparistraceroute-0.9-1.fc20.x86_64.rpm`
-   * `rpm -Uvh paris-traceroute-0.9-1.fc20.x86_64.rpm`
+   * `rpm -iv libparistraceroute-0.9-1.fc20.x86_64.rpm`
+   * `rpm -iv paris-traceroute-0.9-1.fc20.x86_64.rpm`
 * Try out the tool with a command like `paris-traceroute -amda www.google.com` 
 
 The command line options for `curl` are:
 * `-O` (a capital letter O) to write the output to a file
 * `-k` to allow a connection to a website that doesn't have a valid certificate
 
-Your installation of traceroute should look much like this:
+The command line options for `rpm` are:
+* `-i` to install a package
+* `-v` for verbose output
+
+Your installation of `paris-traceroute` should look much like this:
 ```
 [root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100  108k  100  108k    0     0  98071      0  0:00:01  0:00:01 --:--:-- 98117
-[root@8922cd313f37 /]# rpm -Uvh libparistraceroute-0.9-1.fc20.x86_64.rpm
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:libparistraceroute-0.9-1.fc20    ################################# [100%]
+[root@8922cd313f37 /]# rpm -iv libparistraceroute-0.9-1.fc20.x86_64.rpm
+Preparing packages...
+libparistraceroute-0.9-1.fc20.x86_64
 [root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 100 10928  100 10928    0     0   7748      0  0:00:01  0:00:01 --:--:--  7750
-[root@8922cd313f37 /]# rpm -Uvh paris-traceroute-0.9-1.fc20.x86_64.rpm
-Preparing...                          ################################# [100%]
-Updating / installing...
-   1:paris-traceroute-0.9-1.fc20      ################################# [100%]
+[root@8922cd313f37 /]# rpm -iv paris-traceroute-0.9-1.fc20.x86_64.rpm
+Preparing packages...
+paris-traceroute-0.9-1.fc20.x86_64
 [root@8922cd313f37 /]#
 ```
 
