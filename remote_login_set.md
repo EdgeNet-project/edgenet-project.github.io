@@ -9,14 +9,17 @@ archetypal user of this sort is a student in a computer networking course
 who is carrying out lab exercises in network measurements. They want to conduct
 pings and traceroutes from a variety of vantage points.
 
-In this tutorial, you will create a Kubernetes pod that consists of a simple
-container in which you will install the `traceroute` tool. You will
-deploy replicas of the pod across EdgeNet. You will then be able to log into
-these replicas and conduct pings (natively installed) and traceroutes.
+In this tutorial, you will create a Kubernetes pod that consists of a
+simple CentOS container. Into your container, you will install the
+`paris-traceroute` tool, which allows you see the multiple load-balanced
+paths taken on a route from your container to a destination address. You
+will deploy replicas of the pod across EdgeNet. You will then be able to 
+log into these replicas and conduct multipath route traces from multiple
+vantage points.
 
 ## What You Will Do and What You Will Learn
-You will create a vanilla CentOS container and install the 
-`traceroute` tool in it. You will deploy this container to EdgeNet nodes
+You will create a vanilla CentOS container and install the `paris-traceroute`
+tool in it. You will deploy this container to EdgeNet nodes
 around the world. You will then log in to one or more containers and
 conduct measurements from the vantage points that they provide.
 
@@ -30,8 +33,10 @@ and use the software from each instance.
 The technologies that you will use are:
 
 1. [Docker](https://www.docker.com/), to create your container
-2. [RPM](https://rpm.org/), to install the software in the container 
-3. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
+2. [curl](), to download a software package
+3. [RPM](https://rpm.org/), to install the software package in the container 
+4. [paris-traceroute](), to conduct route traces
+5. [Kubernetes](https://kubernetes.io/), to deploy the containers to the EdgeNet nodes
 
 ## Prepare
 Create accounts:
