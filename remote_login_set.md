@@ -129,6 +129,9 @@ In what follows, you will want to be careful not to kill your running container,
 * Install these packages:
    * `rpm -iv libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `rpm -iv paris-traceroute-0.9-1.fc20.x86_64.rpm`
+* Clean up:
+   * `rm libparistraceroute-0.9-1.fc20.x86_64.rpm`
+   * `rm paris-traceroute-0.9-1.fc20.x86_64.rpm`
 * Try out the tool with a command like `paris-traceroute -amda www.google.com` 
 
 The command line options for `curl` are:
@@ -142,7 +145,7 @@ The command line options for `rpm` are:
 The command line option for `paris-traceroute` is:
 * `-amda` to invoke the Mutipath Detection Algorithm (MDA)
 
-Your installation of `paris-traceroute` should look much like this:
+Your installation of `paris-traceroute` should look something like this:
 ```
 [root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -151,6 +154,8 @@ Your installation of `paris-traceroute` should look much like this:
 [root@8922cd313f37 /]# rpm -iv libparistraceroute-0.9-1.fc20.x86_64.rpm
 Preparing packages...
 libparistraceroute-0.9-1.fc20.x86_64
+[root@8922cd313f37 /]# rm libparistraceroute-0.9-1.fc20.x86_64.rpm
+rm: remove regular file 'libparistraceroute-0.9-1.fc20.x86_64.rpm'? y
 [root@8922cd313f37 /]# curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -158,6 +163,8 @@ libparistraceroute-0.9-1.fc20.x86_64
 [root@8922cd313f37 /]# rpm -iv paris-traceroute-0.9-1.fc20.x86_64.rpm
 Preparing packages...
 paris-traceroute-0.9-1.fc20.x86_64
+[root@8922cd313f37 /]# rm paris-traceroute-0.9-1.fc20.x86_64.rpm
+rm: remove regular file 'paris-traceroute-0.9-1.fc20.x86_64.rpm'? y
 [root@8922cd313f37 /]#
 ```
 
@@ -345,10 +352,38 @@ None -> [ 24.164.160.40 ]
 [root@8922cd313f37 /]#
 ```
 
+## Create A New Docker Image
+
+To recapitulate, you have downloaded a vanilla CentOS image from Docker Hub,
+run it as a container, and installed paris-traceroute on it. Now, you can save
+this as a new image.
+
+* Detach from the container using Ctrl-p Ctrl-q.
+* If you need a reminder of the container ID, find it in the output of `docker ps`.
+* Create a new image from the present one with `docker commit -m "installed paris-traceroute" <container ID>` 
+* Find the ID of the new in the ouput of `docker images`.
+* Tag the new image with a name that will be easy to remember with `docker tag <image ID> paris_traceroute`.
+* Run the new image with `docker run -dit paris_traceroute`.
+* Find the container ID of the new container in the output of `docker ps`.
+* Attach to the new container with `docker attach -dit <container ID> `.
+* Try out the tool in the new container with a command like `paris-traceroute -amda www.google.com` 
+
+## Automate Such Creation With a Dockerfile
+
+This section is optional. It describes how to automate what you have just done
+by using a Dockerfile instead of proceeding manually through each of the steps.
 
 XXX
 
+## Push the New Docker Image
 
+XXX
+
+## Deploy the Image on EdgeNet
+
+XXX
+
+XXX
 
 
 ## Build, Test, and Push the Docker File
