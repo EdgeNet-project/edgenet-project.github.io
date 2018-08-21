@@ -169,6 +169,7 @@ rm: remove regular file 'paris-traceroute-0.9-1.fc20.x86_64.rpm'? y
 ```
 
 And here is a run of `paris-traceroute` (yours will certainly differ):
+NOTE : THIS IS LONG, MOVE IT TO THE BOTTOM OF THE TUTORIAL
 ```
 [root@8922cd313f37 /]# paris-traceroute -amda www.google.com
 mda to www.google.com (172.217.6.196), 30 hops max, 30 bytes packets
@@ -372,6 +373,12 @@ this as a new image.
 
 This section is optional. It describes how to automate what you have just done
 by using a Dockerfile instead of proceeding manually through each of the steps.
+
+XXX
+
+## Remote Execution
+
+run `paris-traceroute` via `docker exec`
 
 XXX
 
