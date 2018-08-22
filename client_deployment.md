@@ -53,8 +53,8 @@ Create accounts:
   to pull Docker images onto your services
 
 Install software:
-1. [Docker](https://www.docker.com/) to launch Docker operations from
-  the command line.
+1. [Docker](https://www.docker.com/), to launch Docker operations from
+  the command line
 2. [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
   to control a Kubernetes cluster from the command line
 
