@@ -228,7 +228,7 @@ Because multipath route trace output can be lengthy, we reproduce the run of `pa
 [at the end of this tutorial](#sample-client-output).
 
 
-## Create A New Docker Image
+## Create A Client Image
 
 To recapitulate, you have downloaded a vanilla CentOS image from Docker Hub,
 run it as a container, and installed client software on it. Now, you can save
@@ -246,14 +246,14 @@ Steps:
   tracing towards an EdgeNet node, for instance. 
 8. Detach from the container using Ctrl-p Ctrl-q.
 
-## Automate Such Creation With a Dockerfile
+## Automate Client Image Creation With a Dockerfile
 
 This section is optional. It describes how to automate what you have just done
 by using a Dockerfile instead of proceeding manually through each of the steps.
 
 XXX
 
-## Remote Execution
+## Remote Client Execution
 
 You do not need to be logged in to an interactive shell in order to invoke the client tool
 in the container. You can invoke the tool remotely via `docker exec`.
@@ -269,11 +269,11 @@ tool must complete its work before you see its output.
 
 XXX
 
-## Push the New Docker Image
+## Push the Client Image to Docker Hub
 
 XXX
 
-## Deploy the Image on EdgeNet
+## Deploy the Client Image on EdgeNet
 
 XXX
 
