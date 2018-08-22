@@ -64,7 +64,43 @@ Download and test:
   saving it as `$HOME/.kube/config`. If you do not
   already have a `.kube` directory, create one now in order to house
   the configuration file.
-2. Run `$ kubectl get ns` to make sure that you are talking to the right cluster.
+2. Run `$ kubectl get nodes` to see the nodes.
+
+You should see a set of EdgeNet nodes, similar to the list below. If you see something
+much different, you are not connected to the right cluster.
+```
+$ kubectl get nodes
+NAME                       STATUS                        ROLES     AGE       VERSION
+carleton.edge-net.io       Ready                         <none>    88d       v1.10.3
+cenic.edge-net.io          Ready                         <none>    88d       v1.10.3
+clemson.edge-net.io        Ready                         <none>    80d       v1.10.3
+cornell.edge-net.io        Ready                         <none>    7d        v1.10.5
+gpo.edge-net.io            Ready                         <none>    80d       v1.10.3
+hawaii.edge-net.io         Ready                         <none>    88d       v1.10.3
+illinois.edge-net.io       Ready                         <none>    88d       v1.10.3
+iminds.edge-net.io         Ready                         <none>    88d       v1.10.3
+indiana.edge-net.io        Ready                         <none>    67d       v1.10.4
+kansas.edge-net.io         Ready                         <none>    67d       v1.10.4
+louisiana.edge-net.io      Ready                         <none>    64d       v1.10.4
+missouri.edge-net.io       Ready                         <none>    88d       v1.10.3
+node-0                     NotReady,SchedulingDisabled   <none>    41d       v1.10.5
+northwestern.edge-net.io   Ready                         <none>    88d       v1.10.3
+nps.edge-net.io            Ready                         <none>    64d       v1.10.4
+nysernet.edge-net.io       Ready                         <none>    64d       v1.10.4
+nyu.edge-net.io            Ready                         <none>    64d       v1.10.4
+ohio.edge-net.io           Ready                         <none>    64d       v1.10.4
+sundew-project             Ready                         master    97d       v1.10.2
+tennessee.edge-net.io      Ready                         <none>    64d       v1.10.4
+toronto-core.edge-net.io   Ready                         <none>    88d       v1.10.3
+toronto.edge-net.io        Ready                         <none>    88d       v1.10.3
+ucla.edge-net.io           Ready                         <none>    88d       v1.10.3
+ucsd.edge-net.io           Ready                         <none>    88d       v1.10.3
+umich.edge-net.io          Ready                         <none>    88d       v1.10.3
+utdallas.edge-net.io       Ready                         <none>    88d       v1.10.3
+washington.edge-net.io     Ready                         <none>    88d       v1.10.3
+waterloo.edge-net.io       Ready                         <none>    88d       v1.10.3
+$
+```
 
 ## Create Your Container
 Steps:
