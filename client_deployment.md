@@ -1,7 +1,7 @@
 ---
 ---
 # Tutorial: Deploying a Client on EdgeNet 
-One of the principal sources of value of EdgeNet for experimenters is that
+One of the principal sources of value of EdgeNet for its experimenters is that
 it provides nodes that are
 scattered across the internet, offering both topological and geographic
 diversity for experiments in network measurements and distributed systems.
