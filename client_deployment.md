@@ -46,7 +46,7 @@ The technologies that you will use are:
 
 ## Prepare
 Create accounts:
-1. EdgeNet(http://edge-net.org/), following the instructions in [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)),
+1. [EdgeNet](http://edge-net.org/), following the instructions in [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)),
   and making a note of your namespace
 2. [Docker Hub](https://hub.docker.com/), a convenient place from which
   to pull Docker images onto your services
