@@ -167,8 +167,9 @@ The command line options for `docker run` are:
 With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. Similarly, if you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
 
 ## Install the Client Software
-In what follows, you will want to be careful not to kill your running container, so as not to lose your work.
-Be sure to detach from the container with Ctrl-p Ctrl-q each time.
+As you complete this section, you will want to be careful not to kill your running container,
+so as not to lose your work before proceeding to the next section:
+be sure, as described in the last step of this section, to detach from the container with Ctrl-p Ctrl-q.
 
 Steps:
 1. If not already logged in to the container, do so now with `docker attach <container ID>`,
