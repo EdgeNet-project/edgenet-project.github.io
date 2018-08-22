@@ -14,6 +14,7 @@ case, remote piloting could be called for, which differs from the more
 "set and forget" approach taken when running a server. This tutorial
 thus focuses on how to launch and control a client on EdgeNet.
 
+# What You Will Do and What You Will Learn 
 This tutorial steps you through the creation and deployment of a client on
 EdgeNet, which you then control in each of three ways:
 * via remote login
