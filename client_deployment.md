@@ -236,7 +236,7 @@ Steps:
 2. Create a new image from the present one with `docker commit -m "installed paris-traceroute" <container ID>`,
   using the container ID that you have previously seen in the output of `docker ps`.
 3. Find the ID of the new image in the ouput of `docker images`.
-4. Tag the new image with a name that will be easy to remember, such as edgenet-client with `docker tag <image ID> edgenet-client`.
+4. Tag the new image with a name that will be easy to remember, such as edgenet-client with `docker tag <image ID> edgenet-client`. You will see the new name in `docker images` if you invoke this command again.
 5. Run the new image with `docker run -dit edgenet-client`.
 6. Find the container ID of the new container in the output of `docker ps`.
 7. Attach to the new container with `docker attach -dit <container ID> `.
