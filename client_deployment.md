@@ -263,6 +263,9 @@ Steps:
   `docker exec <container ID> paris-traceroute -amda <target name>`,
   using the container ID that you have previously seen in the output of `docker ps`,
   with, as a target name, the name of an EdgeNet node, for instance.
+  
+It might take some time before you see any output at the command line, as the client
+tool must complete its work before you see its output.
 
 XXX
 
