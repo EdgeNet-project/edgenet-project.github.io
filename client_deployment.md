@@ -67,10 +67,10 @@ Download and test:
 2. Run `$ kubectl get ns` to make sure that you are talking to the right cluster.
 
 ## Create Your Container
-
-* Start Docker on your computer.
-* Log in to Docker Hub, if starting Docker did not already log you in.
-* At the command line, create a CentOS container with `docker create centos`.
+Steps:
+1. Start Docker on your computer.
+2. Log in to Docker Hub, if starting Docker did not already log you in.
+3. At the command line, create a CentOS container with `docker create centos`.
 
 The name `centos` identifies the [latest version of the official CentOS build](https://hub.docker.com/_/centos/) in the Docker Hub official repository. You will see output like the following while Docker downloads and prepares the image:
 
