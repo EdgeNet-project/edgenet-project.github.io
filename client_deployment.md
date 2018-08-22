@@ -178,13 +178,13 @@ Steps:
   depends upon the `libparistraceroute` package:
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm`
-* Install these packages:
+3. Install these packages:
    * `rpm -iv libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `rpm -iv paris-traceroute-0.9-1.fc20.x86_64.rpm`
-* Clean up:
+4. Clean up:
    * `rm libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `rm paris-traceroute-0.9-1.fc20.x86_64.rpm`
-* Try out the client tool with a command like `paris-traceroute -amda <target name>`,
+5. Try out the client tool with a command like `paris-traceroute -amda <target name>`,
   tracing towards an EdgeNet node, for instance.
 
 The command line options for `curl` are:
@@ -221,8 +221,53 @@ rm: remove regular file 'paris-traceroute-0.9-1.fc20.x86_64.rpm'? y
 [root@8922cd313f37 /]#
 ```
 
-And here is a run of `paris-traceroute` (yours will certainly differ):
-NOTE : THIS IS LONG, MOVE IT TO THE BOTTOM OF THE TUTORIAL
+Because multipath route trace output can be lengthy, we reproduce the run of `paris-traceroute`
+at the end of this tutorial.
+
+
+## Create A New Docker Image
+
+To recapitulate, you have downloaded a vanilla CentOS image from Docker Hub,
+run it as a container, and installed paris-traceroute on it. Now, you can save
+this as a new image.
+
+* Detach from the container using Ctrl-p Ctrl-q.
+* If you need a reminder of the container ID, find it in the output of `docker ps`.
+* Create a new image from the present one with `docker commit -m "installed paris-traceroute" <container ID>` 
+* Find the ID of the new in the ouput of `docker images`.
+* Tag the new image with a name that will be easy to remember with `docker tag <image ID> paris_traceroute`.
+* Run the new image with `docker run -dit paris_traceroute`.
+* Find the container ID of the new container in the output of `docker ps`.
+* Attach to the new container with `docker attach -dit <container ID> `.
+* Try out the tool in the new container with a command like `paris-traceroute -amda www.google.com` 
+
+## Automate Such Creation With a Dockerfile
+
+This section is optional. It describes how to automate what you have just done
+by using a Dockerfile instead of proceeding manually through each of the steps.
+
+XXX
+
+## Remote Execution
+
+run `paris-traceroute` via `docker exec`
+
+XXX
+
+## Push the New Docker Image
+
+XXX
+
+## Deploy the Image on EdgeNet
+
+XXX
+
+XXX
+
+
+## Sample Client Output
+
+Here is an example run of `paris-traceroute` (yours will certainly differ):
 ```
 [root@8922cd313f37 /]# paris-traceroute -amda www.google.com
 mda to www.google.com (172.217.6.196), 30 hops max, 30 bytes packets
@@ -406,44 +451,6 @@ None -> [ 24.164.160.40 ]
 [root@8922cd313f37 /]#
 ```
 
-## Create A New Docker Image
-
-To recapitulate, you have downloaded a vanilla CentOS image from Docker Hub,
-run it as a container, and installed paris-traceroute on it. Now, you can save
-this as a new image.
-
-* Detach from the container using Ctrl-p Ctrl-q.
-* If you need a reminder of the container ID, find it in the output of `docker ps`.
-* Create a new image from the present one with `docker commit -m "installed paris-traceroute" <container ID>` 
-* Find the ID of the new in the ouput of `docker images`.
-* Tag the new image with a name that will be easy to remember with `docker tag <image ID> paris_traceroute`.
-* Run the new image with `docker run -dit paris_traceroute`.
-* Find the container ID of the new container in the output of `docker ps`.
-* Attach to the new container with `docker attach -dit <container ID> `.
-* Try out the tool in the new container with a command like `paris-traceroute -amda www.google.com` 
-
-## Automate Such Creation With a Dockerfile
-
-This section is optional. It describes how to automate what you have just done
-by using a Dockerfile instead of proceeding manually through each of the steps.
-
-XXX
-
-## Remote Execution
-
-run `paris-traceroute` via `docker exec`
-
-XXX
-
-## Push the New Docker Image
-
-XXX
-
-## Deploy the Image on EdgeNet
-
-XXX
-
-XXX
 
 
 ## Build, Test, and Push the Docker File
