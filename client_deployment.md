@@ -58,11 +58,12 @@ Install software:
   to control a Kubernetes cluster from the command line
 
 Download and test:
-1. Download your config file from the portal (see [Using EdgeNet](https://edge-net.org/using_EdgeNet.html)
-  and save a copy as `$HOME/.kube/config`. Create the `.kube` directory,
-  which is where Kubernetes looks for a configuration file, if you do not
-  already have one.
-2. Run `$ kubectl get ns` to make sure that you're talking to the right cluster.
+1. Download your configuration file from the portal, as per the instructions in
+  [Using EdgeNet](https://edge-net.org/using_EdgeNet.html),
+  saving it as `$HOME/.kube/config`. If you do not
+  already have a `.kube` directory, create one now in order to house
+  the configuration file.
+2. Run `$ kubectl get ns` to make sure that you are talking to the right cluster.
 
 ## Create Your Container
 
