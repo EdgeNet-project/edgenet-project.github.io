@@ -14,10 +14,12 @@ case, remote piloting could be called for, which differs from the more
 "set and forget" approach taken when running a server. This tutorial
 thus focuses on how to launch and control a client on EdgeNet.
 
-This tutorial steps you through three ways in which you could control a client:
+This tutorial steps you through the creation and deployment of a client on
+EdgeNet, which you then control in each of three ways:
 * via remote login
 * via remote execution
 * via a predefined set of instructions
+
 In this tutorial, you will create a Kubernetes pod that consists of a
 simple CentOS container. Into your container, you will install a network
 measurement tool called `paris-traceroute` tool, which allows you see
