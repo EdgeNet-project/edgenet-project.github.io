@@ -222,7 +222,7 @@ rm: remove regular file 'paris-traceroute-0.9-1.fc20.x86_64.rpm'? y
 ```
 
 Because multipath route trace output can be lengthy, we reproduce the run of `paris-traceroute`
-at the end of this tutorial.
+[at the end of this tutorial](#sample-client-output).
 
 
 ## Create A New Docker Image
