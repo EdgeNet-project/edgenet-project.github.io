@@ -134,13 +134,16 @@ $
 ```
 
 ## Run Your Container Locally
+Steps:
+1. At the command line, run the CentOS image with a Bash shell: `docker run -dit centos`.
+2. Verify that it is running and obtain its container ID by examining the output of `docker ps`.
+3. Connect to the Bash shell on your container with `docker attach <container ID>`,
+  substituting the container ID for `<container ID>`.
+4. From within that shell, check the OS version of your container with `cat /etc/system-release`.
+5. Detach from the Bash shell, and the container as a whole, while maintaining a live
+  container, with Ctrl-p Ctrl-q.
 
-* At the command line, run the CentOS image with a Bash shell: `docker run -dit centos`.
-* Verify that it is running and obtain its container ID by examining the output of `docker ps`.
-* Log into your container with `docker attach <container ID>`, substituting the container ID for `<container ID>`.
-
-Here is an example of a session in which we run the container, log into it, check the system version, and detach using Ctrl-p Ctrl-q (key strokes not visible) so as not to kill the Bash shell:
-
+You should see something like this:
 ```
 $ docker run -dit centos
 8922cd313f377e59cc6030f73a12d4b7a100151c00aff7447073b2d7c6326db5
