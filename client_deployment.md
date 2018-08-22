@@ -121,7 +121,8 @@ fb01e9909aad5525c2fc3921654e6bb2a030d26ae8b24351f68732ca376920c1
 $
 ```
 
-You should now be able to see the image amongst your Docker images in a listing like the following:
+You should now be able to see the image amongst your Docker images by invoking `docker images`,
+giving you a listing like the following:
 
 ```
 $ docker images
