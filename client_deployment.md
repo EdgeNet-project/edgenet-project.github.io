@@ -160,18 +160,22 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 $
 ```
 
-If you are curious about the command line options for `docker run`: 
+The command line options for `docker run` are: 
 * `-d` starts the image in "detached mode". If you were to run the container without this option, you would be logged into it directly.
 * `-t` and `-i` together allocate a tty as the primary process and keep STDIN open. By default in this case, the tty provides a Bash shell.
 
 With Docker, if a container's primary process ever stops, the container stops as well. If you were to run the CentOS image without a primary process, say via `docker run -d centos`, it would stop right away. Similarly, if you were to detach from the container with an `exit` command instead of Ctrl-p Ctrl-q, the container would stop.
 
-## Install `paris-traceroute`
-
+## Install the Client Software
 In what follows, you will want to be careful not to kill your running container, so as not to lose your work.
+Be sure to detach from the container with Ctrl-p Ctrl-q each time.
 
-* If not already logged in to the container, do so now with `docker attach <container ID>`, using the container ID that you see in `docker ps` output.
-* From the command line in the container, download the `paris-traceroute` package and the `libparistraceroute` package on which it depends:
+Steps:
+1. If not already logged in to the container, do so now with `docker attach <container ID>`,
+  using the container ID that you see in `docker ps` output.
+2. From the command line in the container, download the client software packages.
+  Your client tool will be the `paris-traceroute`, provided by the package of the same name, and which
+  depends upon the `libparistraceroute` package:
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `curl -Ok https://paris-traceroute.net/downloads/packages/Fedora/20/paris-traceroute-0.9-1.fc20.x86_64.rpm`
 * Install these packages:
@@ -180,7 +184,8 @@ In what follows, you will want to be careful not to kill your running container,
 * Clean up:
    * `rm libparistraceroute-0.9-1.fc20.x86_64.rpm`
    * `rm paris-traceroute-0.9-1.fc20.x86_64.rpm`
-* Try out the tool with a command like `paris-traceroute -amda www.google.com` 
+* Try out the client tool with a command like `paris-traceroute -amda <target name>`,
+  tracing towards an EdgeNet node, for instance.
 
 The command line options for `curl` are:
 * `-O` (a capital letter O) to write the output to a file
