@@ -39,11 +39,11 @@ of ways.
 ## Technologies That You Will Use
 The technologies that you will use are:
 
-1. [Docker](https://www.docker.com/), to create your container
-2. [curl](https://curl.haxx.se/), to download client software
-3. [RPM](https://rpm.org/), to install the client software 
-4. [paris-traceroute](https://paris-traceroute.net/), the client software
-5. [Kubernetes](https://kubernetes.io/), to deploy your containers to the EdgeNet nodes
+* [Docker](https://www.docker.com/), to create your container
+* [curl](https://curl.haxx.se/), to download client software
+* [RPM](https://rpm.org/), to install the client software 
+* [paris-traceroute](https://paris-traceroute.net/), the client software
+* [Kubernetes](https://kubernetes.io/), to deploy your containers to the EdgeNet nodes
 
 ## Prepare
 Create accounts:
