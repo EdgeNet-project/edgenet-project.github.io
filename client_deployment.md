@@ -246,12 +246,14 @@ Steps:
   tracing towards an EdgeNet node, for instance. 
 8. Detach from the container using Ctrl-p Ctrl-q.
 
+**TBD: show output**
+
 ## Automate Client Image Creation With a Dockerfile
 
 This section is optional. It describes how to automate what you have just done
 by using a Dockerfile instead of proceeding manually through each of the steps.
 
-XXX
+**TBD: write section**
 
 ## Remote Client Execution
 
@@ -267,20 +269,19 @@ Steps:
 It might take some time before you see any output at the command line, as the client
 tool must complete its work before you see its output.
 
-XXX
+**TBD: show output**
 
 ## Push the Client Image to Docker Hub
 
-XXX
+**TBD: write section**
 
 ## Deploy the Client Image on EdgeNet
 
-XXX
-
-XXX
-
+**TBD: write section**
 
 ## Sample Client Output
+
+**TBD: rerun with an EdgeNet node as target**
 
 Here is an example run of `paris-traceroute` (yours will certainly differ):
 ```
