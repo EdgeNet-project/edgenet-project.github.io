@@ -143,7 +143,7 @@ Steps:
 5. Detach from the Bash shell, and the container as a whole, while maintaining a live
   container, with Ctrl-p Ctrl-q.
 
-You should see something like this:
+You should see something like this (with the Ctrl-p Ctrl-q keystrokes not being visible):
 ```
 $ docker run -dit centos
 8922cd313f377e59cc6030f73a12d4b7a100151c00aff7447073b2d7c6326db5
