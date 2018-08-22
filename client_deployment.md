@@ -235,9 +235,9 @@ Steps:
 1. Detach from the container using Ctrl-p Ctrl-q.
 2. If you need a reminder of the container ID, find it in the output of `docker ps`.
 3. Create a new image from the present one with `docker commit -m "installed paris-traceroute" <container ID>` 
-4. Find the ID of the new in the ouput of `docker images`.
-5. Tag the new image with a name that will be easy to remember with `docker tag <image ID> paris_traceroute`.
-6. Run the new image with `docker run -dit paris_traceroute`.
+4. Find the ID of the new image in the ouput of `docker images`.
+5. Tag the new image with a name that will be easy to remember, such as edgenet-client with `docker tag <image ID> edgenet-client`.
+6. Run the new image with `docker run -dit edgenet-client`.
 7. Find the container ID of the new container in the output of `docker ps`.
 8. Attach to the new container with `docker attach -dit <container ID> `.
 9. Try out the tool in the new container with a command like `paris-traceroute -amda <target name>`,
