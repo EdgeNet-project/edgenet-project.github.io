@@ -1,33 +1,37 @@
 ---
 ---
-# Tutorial: A Set of Remote Login EdgeNet Containers 
-A main value proposition of EdgeNet is that it provides nodes that are
+# Tutorial: Deploying a Client on EdgeNet 
+One of the principal sources of value of EdgeNet for experimenters is that
+it provides nodes that are
 scattered across the internet, offering both topological and geographic
-diversity. This tutorial focuses on the user whose workflow consists of
-logging into containers and launching tools at the command line. An
-archetypal user of this sort is a student in a computer networking course
-who is carrying out lab exercises in network measurements. They want to conduct
-pings and traceroutes from a variety of vantage points.
+diversity for experiments in network measurements and distributed systems.
+In such experiments, clients are first rate components, which differs from
+typical Kubernetes deployments that are centered on servers.
+The instructions that guide a client
+might not all be known in advance of an experiment, or they might need to be issued in a
+coordinated manner across mulitple nodes over the course of an experiment. In either
+case, remote piloting could be called for, which differs from the more
+"set and forget" approach taken when running a server. This tutorial
+thus focuses on how to launch and control a client on EdgeNet.
 
+This tutorial steps you through three ways in which you could control a client:
+* via remote login
+* via remote execution
+* via a predefined set of instructions
 In this tutorial, you will create a Kubernetes pod that consists of a
-simple CentOS container. Into your container, you will install the
-`paris-traceroute` tool, which allows you see the multiple load-balanced
+simple CentOS container. Into your container, you will install a network
+measurement tool called `paris-traceroute` tool, which allows you see
+the multiple load-balanced
 paths taken on a route from your container to a destination address. You
-will deploy replicas of the pod across EdgeNet. You will then be able to 
-log into these replicas and conduct multipath route traces from multiple
-vantage points.
-
-## What You Will Do and What You Will Learn
-You will create a vanilla CentOS container and install the `paris-traceroute`
-tool in it. You will deploy this container to EdgeNet nodes
-around the world. You will then log in to one or more containers and
-conduct measurements from the vantage points that they provide.
+will prepare an image that contains this tool and that you will deploy
+across EdgeNet. You will then pilot the tool in each of the ways mentioned
+above.
 
 Following this tutorial, you will have the skills necessary to create
-a Linux container, install the software that you like via a package
+a Linux container, install the client software that you like via a package
 manager, and save the container as a Docker image for later deployment.
-You will be able to deploy that image and log into instances of it
-and use the software from each instance.
+You will be able to deploy that image and control the client in a variety
+of ways.
 
 ## Technologies That You Will Use
 The technologies that you will use are:
