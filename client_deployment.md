@@ -281,10 +281,11 @@ tool must complete its work before you see its output.
 
 ## Sample Client Output
 
-**TBD: rerun with an EdgeNet node as target**
-
-Here is an example run of `paris-traceroute` (yours will certainly differ):
+Below is an example run of `paris-traceroute` using the Multipath Detection Algorithm (MDA).
+We have chosen EdgeNet node `toronto.edge-net.io` as a target.
+The output shows multiple load-balanced interfaces at hops 7 (three interfaces), 8 (three interfaces), and 9 (four interfaces). Your results will surely differ.
 ```
+Below is an example run of `paris-traceroute` using the Multipath Detection Algorithm (MDA).
 [root@8922cd313f37 /]# paris-traceroute -amda toronto.edge-net.io
 mda to toronto.edge-net.io (142.150.208.141), 30 hops max, 30 bytes packets
 0 None -> 172.17.0.1 [{ 0*1, 0*2, 0*3, 0*4, 0*5, 0*6, 0!7, 0!8 } -> {  1*1, 1*2, 1*3, 1*4, 1*5, 1*6, 1*9, 1*10 }]
