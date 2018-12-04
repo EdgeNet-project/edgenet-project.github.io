@@ -241,7 +241,7 @@ Steps:
 3. Tag the new image with a name that will be easy to remember, such as edgenet-client with `docker tag <image ID> edgenet-client`. You will see the new name in `docker images` if you invoke this command again.
 4. Run the new image with `docker run -dit edgenet-client`.
 5. Find the container ID of the new container in the output of `docker ps`.
-6. Attach to the new container with `docker attach -dit <container ID> `.
+6. Attach to the new container with `docker attach <container ID> `.
 7. Try out the tool in the new container with a command like `paris-traceroute -amda <target name>`,
   tracing towards an EdgeNet node, for instance. 
 8. Detach from the container using Ctrl-p Ctrl-q.
