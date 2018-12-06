@@ -2,7 +2,6 @@
 ---
 # Contributing nodes to EdgeNet
 
-**TODO**: This page will describe how to contribute own nodes to EdgeNet.
 
 Any site can contribute nodes to EdgeNet on a part-time or fulltime basis.  No approval from edge-net.org is required.  EdgeNet users should also note that EdgeNet hasn't vetted these nodes; they may be secure, or not, may be subject to memory dump attacks, etc.  *Unencrypted sensitive information should not be stored on an EdgeNet node*; EdgeNet is an experimental infrastructure and testbed built with contributed resources, _not_ a reliable, robust, secure facility.
 
