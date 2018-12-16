@@ -40,11 +40,17 @@ container orchestration software, and can be controlled using the
 Kubernetes Dashboard and `kubectl` command-line tool.
 EdgeNet provides Ubuntu 16.04 worker nodes to its users.
 
+# Maintenance Notice December 17
+
+EdgeNet will be moving to a new head node the week of December 18.  Configuration files 
+will be invalid (new ones can be obtained from the portal), and the number of nodes will be sharply reduced
+until nodes are re-attached to the new head node.
+
 
 
 # Status
   
-As of June 2018, EdgeNet is under active development. A prototype
+As of Decemeber 2018, EdgeNet is under active development. A prototype
 with around 30 worker nodes from around the world is accessible to
 the public via the [EdgeNet Portal](https://sundewcluster.appspot.com/).
 Please see [our space on GitHub](https://github.com/EdgeNet-Project)
