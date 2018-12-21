@@ -40,12 +40,11 @@ container orchestration software, and can be controlled using the
 Kubernetes Dashboard and `kubectl` command-line tool.
 EdgeNet provides Ubuntu 16.04 worker nodes to its users.
 
-# Maintenance Notice December 17
+# Maintenance Update  December 20
 
-EdgeNet will be moving to a new head node the week of December 18.  Configuration files 
-will be invalid (new ones can be obtained from the portal), and the number of nodes will be sharply reduced
-until nodes are re-attached to the new head node.
+Cutover to the new head node is complete and most nodes are up and running.  Configuration files are headnode-specific, so configuration files downloaded before 18 Decemer 2018 are no longer valid.  New configuration files have been generated and may be downloaded from the EdgeNet portal. 
 
+The Kubernetes Dashboard is still not up, but kubectl commands from your laptop or a local dashboard should work well.  Please send us any feedback on problems, etc.
 
 
 # Status
