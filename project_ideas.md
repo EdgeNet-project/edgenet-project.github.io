@@ -15,6 +15,6 @@ to feature your code via our GitHub organization,
 If you are looking for ideas to realize, or want to start a discussion
 on an idea of yours, please take a look at our
 [Ideation](https://github.com/orgs/EdgeNet-project/projects/1)
-page on GitHub. (Read more about our project workflow
+page on GitHub. Read more about our project workflow
 [here](https://github.com/EdgeNet-project/notes/blob/master/githubprojects.md).
 
