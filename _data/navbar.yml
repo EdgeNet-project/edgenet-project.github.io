@@ -8,6 +8,8 @@
       url: /hello_world.html
     - text: Contribute nodes
       url: /contributing_nodes.html
+    - text: Project ideas
+      url: /project_ideas.html
 - text: About
   sub:
     - text: Status
