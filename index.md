@@ -60,8 +60,8 @@ EdgeNet is a joint project of [US Ignite](https://www.us-ignite.org),
 [the NYU Tandon School of Engineering](https://engineering.nyu.edu/),
 [The Swarm Lab at UC-Berkeley](https://swarmlab.berkeley.edu/home),
 [Computer Sciences department at the University of Victoria](https://www.uvic.ca/engineering/computerscience/),
-[the University of Vienna] (https://www.univie.ac.at/),
-and [the Sorbonne] (http://sorbonne-universite.fr).  It is funded by the
+[the University of Vienna](https://www.univie.ac.at/),
+and [the Sorbonne](http://sorbonne-universite.fr).  It is funded by the
 [National Science Foundation](https://www.nsf.org/) under contract CNS-1820901.
 Nodes are provided by the US [GENI](https://geni.net) and
 [ExoGENI](http://www.exogeni.net/) projects,
