@@ -40,16 +40,14 @@ container orchestration software, and can be controlled using the
 Kubernetes Dashboard and `kubectl` command-line tool.
 EdgeNet provides Ubuntu 16.04 worker nodes to its users.
 
-# Maintenance Update  December 20
+# Maintenance Update  February 20
 
-Cutover to the new head node is complete and most nodes are up and running.  Configuration files are headnode-specific, so configuration files downloaded before 18 Decemer 2018 are no longer valid.  New configuration files have been generated and may be downloaded from the EdgeNet portal. 
-
-The Kubernetes Dashboard is still not up, but kubectl commands from your laptop or a local dashboard should work well.  Please send us any feedback on problems, etc.
+EdgeNet is up and running.
 
 
 # Status
   
-As of Decemeber 2018, EdgeNet is under active development. A prototype
+As of February 2019, EdgeNet is under active development. A prototype
 with around 30 worker nodes from around the world is accessible to
 the public via the [EdgeNet Portal](https://sundewcluster.appspot.com/).
 Please see [our space on GitHub](https://github.com/EdgeNet-Project)
@@ -60,15 +58,17 @@ for up-to-date information!
 
 EdgeNet is a joint project of [US Ignite](https://www.us-ignite.org),
 [the NYU Tandon School of Engineering](https://engineering.nyu.edu/),
-[The Swarm Lab at UC-Berkeley](https://swarmlab.berkeley.edu/home), and
-[PlanetLab Europe](https://www.planet-lab.eu/).  It is funded by the
+[The Swarm Lab at UC-Berkeley](https://swarmlab.berkeley.edu/home),
+[Computer Sciences department at the University of Victoria](https://www.uvic.ca/engineering/computerscience/),
+[the University of Vienna] (https://www.univie.ac.at/),
+and [the Sorbonne] (http://sorbonne-universite.fr).  It is funded by the
 [National Science Foundation](https://www.nsf.org/) under contract CNS-1820901.
 Nodes are provided by the US [GENI](https://geni.net) and
 [ExoGENI](http://www.exogeni.net/) projects,
 Canada's [Smart Applications on Virtual Infrastructure](https://www.savinetwork.ca/) project, and
 [PlanetLab Europe](https://www.planet-lab.eu/). The cluster head node
-is hosted by the
-[Computer Sciences department at the University of Victoria](https://www.uvic.ca/engineering/computerscience/)
+is hosted by  [PlanetLab Europe](https://www.planet-lab.eu/).
+
 
 
 
