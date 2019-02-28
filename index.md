@@ -40,9 +40,9 @@ container orchestration software, and can be controlled using the
 Kubernetes Dashboard and `kubectl` command-line tool.
 EdgeNet provides Ubuntu 16.04 worker nodes to its users.
 
-# Maintenance Update  February 20
+# Maintenance Update  February 28
 
-EdgeNet is up and running.
+The InstaGENI nodes have been "locked for update" by the GENI team.  When our GENI slice expires, we will not be able to renew it.  We expect 17 or so nodes to be lost until the slice is released by GENI.  We will keep the community informed on our status.
 
 
 # Status
