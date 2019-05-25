@@ -30,7 +30,7 @@ Create account:
 
 ## Get the File to Deploy the Slice
 You have two choices: get a blank file and edit it yourself, or find a customized file in your browser.
-1. To get the blank file, get <a href=https://edge-net.org/helloWorld.yaml download>helloWorld.yaml</a>.  You will need to change <username> in the last line to a nickname for yourself; please pick a good one.
+1. To get the blank file, get [helloWorld.yaml](https://edge-net.org/helloWorld.yaml download) <a href=https://edge-net.org/helloWorld.yaml download>helloWorld.yaml</a>.  You will need to change <username> in the last line to a nickname for yourself; please pick a good one.
 2. To get the file filled out with your nickname, fill out the form [here](http://princeton.edge-net.io:5000/get_yaml) and copy it from your browser.
 
 
@@ -66,7 +66,7 @@ spec:
         - name: hello-world-new
           image: tutum/curl
           command: ["/bin/sh"]
-          args: ["-c", "while true; do curl http://princeton.edge-net.io:5000/hello/$(hostname)/<nickname>; sleep 72000; done"]
+          args: ["-c", "while true; do curl http://princeton.edge-net.io:5000/hello/$(hostname)/<nickname>; sleep 7200; done"]
 ```
 
 Where  `<nickname>` is the name you chose/edited into the file.  
