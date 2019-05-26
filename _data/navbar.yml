@@ -22,3 +22,9 @@
   url: /further_reading.html
 - text: Go to Portal
   url: https://sundewcluster.appspot.com/
+- text: MERIF Workshop
+  sub: 
+    - text: Simple Hello, World Exercise
+      url: /simple_hello_world.html
+    - text: Parise Traceroute Exercise
+      url: /paris_traceroute.html
