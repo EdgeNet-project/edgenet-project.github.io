@@ -24,6 +24,7 @@ infrastructure.
 
 **To use EdgeNet, please proceed to the [EdgeNet Portal](https://sundewcluster.appspot.com/).**
 
+**Note: we warmly welcome all PlanetLab (US) and PlanetLab Europe users.**
 
 
 # Design Goal
@@ -47,8 +48,8 @@ The InstaGENI nodes have been "locked for update" by the GENI team.  When our GE
 
 # Status
   
-As of February 2019, EdgeNet is under active development. A prototype
-with around 30 worker nodes from around the world is accessible to
+As of March 2020, EdgeNet is under active development. A prototype
+with around 60 worker nodes from around the world is accessible to
 the public via the [EdgeNet Portal](https://sundewcluster.appspot.com/).
 Please see [our space on GitHub](https://github.com/EdgeNet-Project)
 for up-to-date information!
