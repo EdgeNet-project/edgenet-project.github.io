@@ -24,7 +24,7 @@ infrastructure.
 
 **To use EdgeNet, please proceed to the [EdgeNet Portal](https://sundewcluster.appspot.com/).**
 
-**PlanetLab users:** A special warm welcome to you! We will be migrating PlanetLab Europe accounts to EdgeNet. If you are a user of PlanetLab US, please let us know when you sign up for your EdgeNet account.
+**PlanetLab users:** A special warm welcome to you! We will be migrating PlanetLab Europe accounts to EdgeNet. If you are a user of the US-based PlanetLab, please let us know when you sign up for your EdgeNet account.
 
 
 # Design Goal
