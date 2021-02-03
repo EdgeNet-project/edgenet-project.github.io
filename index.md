@@ -1,73 +1,16 @@
 ---
+layout: home
+title: Home
+nav_order: 1
 ---
 
-![EdgeNet logo](assets/images/logo.png)
+Welcome to EdgeNet, the globally distributed edge cloud for Internet researchers.
+EdgeNet is based on _industry-standard Cloud software_, using [Docker](https://www.docker.com/) for containerization
+and [Kubernetes](https://kubernetes.io/) for deployment and node management.
 
-# Welcome to EdgeNet!
+[☁️&nbsp;&nbsp;I want to contribute a node to EdgeNet]({{ site.baseurl }}{% link pages/node-contribution.md %}){: .btn .btn-blue }
+[🧪&nbsp;&nbsp;I want to run experiments on EdgeNet]({{ site.baseurl }}{% link pages/running-experiments.md %}){: .btn .btn-blue }
 
-EdgeNet is a distributed edge cloud, in the family of
-[PlanetLab](https://planet-lab.org),
-[GENI](https://geni.net),
-[JGN-X](https://www.jgn.nict.go.jp/english/index.html),
-and [PlanetLab Europe](https://www.planet-lab.eu/).
-It is a modern distributed edge cloud, incorporating
-advances in Cloud technologies over the past few years.
-
-EdgeNet is based on *industry-standard Cloud software*, with
-[Docker](https://www.docker.com/) as the containerization
-technology and [Kubernetes](https://kubernetes.io/) as the
-node manager and deployment solution.  It is an *opt-in* global
-Kubernetes cluster; once a user has authenticated with this portal and
-been approved, she will be able to use standard Kubernetes tools and
-technologies to deploy an application across the EdgeNet
-infrastructure.
-
-**To use EdgeNet, please proceed to the [EdgeNet Portal](https://sundewcluster.appspot.com/).**
-
-**PlanetLab users:** A special warm welcome to you! We will be migrating PlanetLab Europe accounts to EdgeNet. If you are a user of the US-based PlanetLab, please send us an e-mail (timur.friedman@sorbonne-universite.fr, rick@mcgeer.com) so that we can ensure a smooth transition for you as well.
-
-
-# Design Goal
-
-EdgeNet is a software-only infrastructure. Its design goal is that any
-local virtual machine with Internet connectivity should be able to join
-the EdgeNet worldwide infrastructure in under five minutes, and any developer
-should be able to deploy his application across EdgeNet using standard,
-familiar Cloud technologies within five minutes.
-
-To reach this goal, EdgeNet is based on the popular
-[Kubernetes](https://kubernetes.io/)
-container orchestration software, and can be controlled using the
-Kubernetes Dashboard and `kubectl` command-line tool.
-EdgeNet provides Ubuntu 16.04 worker nodes to its users.
-
-
-# Status
-  
-As of March 2020, EdgeNet is under active development. A prototype
-with around 60 worker nodes from around the world is accessible to
-the public via the [EdgeNet Portal](https://sundewcluster.appspot.com/).
-Please see [our space on GitHub](https://github.com/EdgeNet-Project)
-for up-to-date information!
-
-
-# Acknowledgements
-
-EdgeNet is a joint project of [US Ignite](https://www.us-ignite.org),
-[the NYU Tandon School of Engineering](https://engineering.nyu.edu/),
-[The Swarm Lab at UC-Berkeley](https://swarmlab.berkeley.edu/home),
-[Computer Sciences department at the University of Victoria](https://www.uvic.ca/engineering/computerscience/),
-[the University of Vienna](https://www.univie.ac.at/), [Cslash](https://cslash.net/),
-and [Sorbonne University](https://sorbonne-universite.fr/en).  It is funded by the
-[National Science Foundation](https://www.nsf.org/) under contract CNS-1820901.
-Nodes are provided by the US [GENI](https://geni.net) and
-[ExoGENI](http://www.exogeni.net/) projects,
-Canada's [Smart Applications on Virtual Infrastructure](https://www.savinetwork.ca/) project, and
-[PlanetLab Europe](https://www.planet-lab.eu/). The cluster head node
-is hosted by  [PlanetLab Europe](https://www.planet-lab.eu/).
-
-
-
-
-
-
+We extend a special warm welcome to PlanetLab users. 
+If you are a PlanetLab Europe user, there is nothing you need to do: we will migrate your account to EdgeNet shortly.
+If you are a user of the US-based PlanetLab, please send us an e-mail (<timur.friedman@sorbonne-universite.fr>, <rick@mcgeer.com>) so that we can ensure a smooth transition for you as well.
