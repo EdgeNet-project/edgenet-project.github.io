@@ -22,8 +22,6 @@ title: EdgeNet
 email: edgenet-support@planet-lab.eu
 description: >-
   A Kubernetes-based internet edge testbed
-# TODO: Remove when merged into edgenet-project.github.io
-baseurl: "/website-new"
 # TODO: Uncomment when deployed on edge-net.org.
 # url: "https://edge-net.org"
 url: "https://edgenet-project.github.io"
