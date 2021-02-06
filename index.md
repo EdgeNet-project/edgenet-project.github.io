@@ -10,8 +10,8 @@ EdgeNet is based on industry-standard Cloud software, using [Docker](https://www
 and [Kubernetes](https://kubernetes.io/) for deployment and node management.
 {: .fs-6 .fw-300 }
 
-[☁️&nbsp;&nbsp;I want to contribute a node]({{ site.baseurl }}{% link pages/node-contribution.md %}){: .btn .btn-blue .fs-5 }
-[🧪&nbsp;&nbsp;I want to run experiments]({{ site.baseurl }}{% link pages/running-experiments.md %}){: .btn .btn-blue .fs-5 }
+[☁️&nbsp;&nbsp;I want to contribute a node]({{ site.baseurl }}{% link pages/node-contribution.md %}){: .btn .btn-blue .fs-5 .mb-1 }
+[🧪&nbsp;&nbsp;I want to run experiments]({{ site.baseurl }}{% link pages/running-experiments.md %}){: .btn .btn-blue .fs-5 .mb-1 }
 
 ---
 
