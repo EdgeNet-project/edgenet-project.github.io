@@ -37,6 +37,8 @@ plugins:
 # https://pmarsceill.github.io/just-the-docs/docs/configuration/
 color_scheme: edgenet
 logo: "/assets/images/edgenet_logo_2020_05_03_w_text_075dpi.png"
+search:
+  rel_url: false
 
 # Exclude from processing.
 # The following items will not be processed, by default.
