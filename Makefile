@@ -15,4 +15,4 @@ clean:
 
 .PHONY: server
 server:
-	bundle exec jekyll server
+	bundle exec jekyll server -l

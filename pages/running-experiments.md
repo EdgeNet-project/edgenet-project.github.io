@@ -4,6 +4,8 @@ title: Running Experiments
 nav_order: 3
 ---
 
+# Running experiments on EdgeNet
+
 ## Registering as a user
 
 To run experiments on EdgeNet you need to register.  
