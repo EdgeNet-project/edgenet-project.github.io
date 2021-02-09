@@ -24,7 +24,7 @@ We simply require the contact informations of a permanent member of the institut
 If you hold a non-permanent position (e.g. a student or an intern), please provide the contact informations of you supervisor or manager.
 
 To register, please follow the instructions at <https://console.edge-net.org/signup>.
-We will verify you information and send you your _kubeconfig_ file under 48 hours.
+We will verify your informations and send you your _kubeconfig_ file under 48 hours.
 
 ### For-profit institutions
 
