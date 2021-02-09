@@ -11,10 +11,24 @@ you already know how almost everything to deploy experiments on EdgeNet.
 If not, you can rely on the wealth of documentation and tutorials already available online.
 In this page, we describe the basic steps to run an experiment on EdgeNet, as well as the few specific EdgeNet features.
 
+Keep in mind that EdgeNet goal is to provide a globally distributed testbed for network research.
+For more informations on its intended uses, see the [Acceptable Use Policy]({{ site.baseurl }}{% link pages/usage-policy.md %}).
+
 ## Registering as a user
 
-To run experiments on EdgeNet you need to register.  
-Please follow the instructions at <https://console.edge-net.org/signup> to obtain your kubeconfig file.
+### Non-profit institutions
+
+To run experiments on EdgeNet, you need an account on the platform.
+We welcome anyone from non-profit institutions, including universities, research institutes, laboratories and government.
+We simply require the contact informations of a permanent member of the institution (e.g. a professor).
+If you hold a non-permanent position (e.g. a student or an intern), please provide the contact informations of you supervisor or manager.
+
+To register, please follow the instructions at <https://console.edge-net.org/signup>.
+We will verify you information and send you your _kubeconfig_ file under 48 hours.
+
+### For-profit institutions
+
+If you are working at a for-profit institution, please contact us at <edgenet-support@planet-lab.eu>.
 
 ## Required tools
 
