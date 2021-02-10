@@ -11,3 +11,7 @@ The EdgeNet source code is freely available on GitHub, and the EdgeNet architect
 
 [EdgeNet's GitHub Repository](https://github.com/EdgeNet-project/edgenet){: .btn .btn-blue }
 [EdgeNet's publications on HAL](https://hal.archives-ouvertes.fr/search/index?q=EdgeNet){: .btn .btn-blue }
+
+## Contact
+
+If you need help with EdgeNet, feel free to contact us at <edgenet-support@planet-lab.eu>.
