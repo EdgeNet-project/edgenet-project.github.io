@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Running Experiments
+title: Run an Experiment
 nav_order: 3
 ---
 
-# Running experiments on EdgeNet
+# Running an experiment on EdgeNet
 
 If you are familiar with [Docker](https://www.docker.com/) and [Kubernetes](https://kubernetes.io/),
 you already know how almost everything to deploy experiments on EdgeNet.
