@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Nodes List
+title: Node List
 nav_order: 5
 ---
 
-# EdgeNet nodes list
+# EdgeNet node list
 
 <div id="nodes-map"></div>
 
