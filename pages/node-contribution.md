@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Contributing a Node
+title: Contribute a Node
 nav_order: 2
 ---
 
