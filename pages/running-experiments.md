@@ -23,6 +23,8 @@ We welcome anyone from non-profit institutions, including universities, research
 We simply require the contact informations of a permanent member of the institution (e.g. a professor).
 If you hold a non-permanent position (e.g. a student or an intern), please provide the contact informations of you supervisor or manager.
 
+[Signup on the ](){: .btn .btn-blue }
+
 To register, please follow the instructions at <https://console.edge-net.org/signup>.
 We will verify your informations and send you your _kubeconfig_ file under 48 hours.
 
