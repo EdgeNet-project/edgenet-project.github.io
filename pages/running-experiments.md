@@ -23,10 +23,10 @@ We welcome anyone from non-profit institutions, including universities, research
 We simply require the contact informations of a permanent member of the institution (e.g. a professor).
 If you hold a non-permanent position (e.g. a student or an intern), please provide the contact informations of you supervisor or manager.
 
-[Signup on the ](){: .btn .btn-blue }
-
-To register, please follow the instructions at <https://console.edge-net.org/signup>.
+To register, please follow the link below.
 We will verify your informations and send you your _kubeconfig_ file under 48 hours.
+
+[Create an EdgeNet account](https://console.edge-net.org/signup){: .btn .btn-blue }
 
 ### For-profit institutions
 
@@ -42,10 +42,10 @@ You will also need a free account on [Docker Hub](https://hub.docker.com/) to st
 ## Building a container image
 
 Let's consider a simple scenario where we want to serve a static web page.
-We will define two files in `simple-container` directory: the web page `index.html`, and the _Dockerfile_.
+We will define two files in `simple-experiment` directory: the web page `index.html`, and the _Dockerfile_.
 
 ```bash
-simple-container/
+simple-experiment/
 ├── Dockerfile
 └── index.html
 ```
@@ -68,8 +68,8 @@ CMD python3 -m http.server -d /data 80
 
 We can then build and test our image locally:
 ```bash
-docker build -t simple-container .
-docker run -p 8080:80 -it simple-container
+docker build -t simple-experiment .
+docker run -p 8080:80 -it simple-experiment
 curl http://localhost:8080
 # <html><body>Hello World!</body></html>
 ```
@@ -82,21 +82,24 @@ To do so, start by [creating a repository](https://hub.docker.com/repository/cre
 Then run the following commands by replacing _username_ with your Docker Hub username:
 ```bash
 docker login
-docker tag simple-container username/simple-container:v1.0
-docker push username/simple-container:v1.0
+docker tag simple-experiment username/simple-experiment:v1.0
+docker push username/simple-experiment:v1.0
 ```
-
 
 ## Deploying containers
 
 ### Creating a slice
+
+Kubernetes [workloads](https://kubernetes.io/docs/concepts/workloads/) cannot be directly created under the authority namespace on EdgeNet.
+You need to create a slice first.
+To do so, create the following `slice.yaml` file by replacing `your-authority` and `your-username` with the corresponding values.
 
 ```yaml
 # slice.yaml
 apiVersion: apps.edgenet.io/v1alpha
 kind: Slice
 metadata:
-  name: playground-your-username
+  name: your-username-slice-1
 spec:
   type: Development
   profile: Medium
@@ -105,12 +108,37 @@ spec:
       username: your-username
 ```
 
-### Creating a deployment
+Then run:
+```bash
+kubectl apply --kubeconfig /path/to/kubeconfig.cfg -f slice.yaml
+```
 
-TODO: Describe selective deployments.
+### Creating a deployment
 
 ```yaml
 # deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-experiment
+  labels:
+    app: nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+---
 apiVersion: apps.edgenet.io/v1alpha
 kind: SelectiveDeployment
 metadata:
@@ -130,9 +158,15 @@ spec:
 ```
 
 ```bash
-kubectl apply -f deployment.yaml
+kubectl --kubeconfig /path/to/kubeconfig.cfg apply -f deployment.yaml
 ```
 
-## Reconfiguring the experiment
-
 ## Stopping the experiment
+
+```bash
+kubectl --kubeconfig /path/to/kubeconfig.cfg delete -f deployment.yaml
+```
+
+## Going further
+
+For more information, refer to the [Docker](https://docs.docker.com) and [Kubernetes](https://kubernetes.io/docs/concepts/) documentations.
