@@ -5,15 +5,11 @@ nav_order: 2
 ---
 
 # Contributing a node to EdgeNet
-{: .no_toc }
 
 Anyone can contribute a node to the EdgeNet project. A node is a machine, virtual or physical, that
 hosts [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/), the Kubernetes agent,
 and [Docker](https://www.docker.com/), the container runtime. Nodes can be contributed for any duration. For example, it
 is possible to start a powerful node for the need of an experiment, and to stop it after.
-
-1. TOC
-{:toc}
 
 ## From a dedicated machine
 
@@ -50,7 +46,6 @@ Provider | Minimal instance recommended | Cost per month
 [Microsoft Azure](https://portal.azure.com) | `B2s` (2 vCPUS, 4 GiB of memory) | ~30$
 
 ### Special instructions for Google Cloud
-{: .no_toc }
 
 On Google Cloud, the EdgeNet public SSH key must be added manually at the bottom of the instance creation page:
 
@@ -68,8 +63,9 @@ Advanced
 
 These instructions are for advanced users who wish to automate the deployment of EdgeNet instances.
 
+[expand]
+
 ### Amazon AWS
-{: .no_toc }
 
 First, install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 and, if not already done, connect your AWS account:
@@ -106,7 +102,6 @@ Note that the Ubuntu `image-id` is different for each region, to find the id for
 the [Amazon EC2 AMI Locator](http://cloud-images.ubuntu.com/locator/ec2/).
 
 #### Cleanup
-{: .no_toc }
 
 To delete the firewall rules and the instance, run the following by replacing the `instance-id`:
 
@@ -117,7 +112,6 @@ aws ec2 delete-security-group --region us-east-1 --group-name edgenet
 ```
 
 #### Troubleshooting
-{: .no_toc }
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance
 using [EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#ec2-instance-connect-connecting-console)
@@ -128,7 +122,6 @@ cat /var/log/cloud-init-output.log
 ```
 
 ### Google Cloud Platform
-{: .no_toc }
 
 First, install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install), and, if not already done, connect your
 Google account:
@@ -163,7 +156,6 @@ gcloud compute instances create edgenet-1 \
 ```
 
 #### Cleanup
-{: .no_toc }
 
 To delete the firewall rules and the instance, run the following:
 
@@ -173,7 +165,6 @@ gcloud compute instances delete edgenet-1 --zone us-central1-a
 ```
 
 #### Troubleshooting
-{: .no_toc }
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance and
 send us the logs of the startup script:
@@ -184,7 +175,6 @@ sudo journalctl -u google-startup-scripts.service
 ```
 
 ### Microsoft Azure
-{: .no_toc }
 
 First, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and if not already done,
 connect your Microsoft account:
@@ -195,6 +185,8 @@ az login
 
 Coming soon
 {: .label .label-yellow }
+
+[/expand]
 
 ## Technical details
 
