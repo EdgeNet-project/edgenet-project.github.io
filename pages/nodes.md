@@ -4,7 +4,7 @@ title: Node List
 nav_order: 5
 ---
 
-# EdgeNet node list
+# EdgeNet nodes
 
 <div id="nodes-map"></div>
 
