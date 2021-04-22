@@ -5,11 +5,15 @@ nav_order: 2
 ---
 
 # Contributing a node to EdgeNet
+{: .no_toc }
 
 Anyone can contribute a node to the EdgeNet project. A node is a machine, virtual or physical, that
 hosts [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/), the Kubernetes agent,
 and [Docker](https://www.docker.com/), the container runtime. Nodes can be contributed for any duration. For example, it
 is possible to start a powerful node for the need of an experiment, and to stop it after.
+
+1. TOC
+{:toc}
 
 ## From a dedicated machine
 
@@ -27,22 +31,45 @@ bash -ci "$(wget -O - https://bootstrap.edge-net.org)"
 If you have a firewall in front of the machine, at-least the following ports and protocols must be allowed:
 `tcp:22,179,2379,5473,10250,25010,30000-32767`, `icmp` and `ipip`.
 
+If you encounter a problem during the setup, simply send us the output of the script and the public IP address of the
+machine.
+
 ## From a public cloud
 
 You can easily run multiple EdgeNet instances in the cloud. You can choose the instance type you want, although we
 recommend instances with at-least 2 vCPUs and 1 GiB of memory. ARM instances are not currently supported.
 
-Below we give the instructions to create instances from the CLI, for automation purpose or for use in scripts. It's also
-possible to create instances using the web interface of each cloud providers and simply run the bootstrap script as
-above.
+Simply create an instance of your liking using the web interface, connect with SSH to it, and run the boostrap script
+as described above. The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
+the ports described above are allowed for incoming connections.
+
+Provider | Minimal instance recommended | Cost per month
+---------|------------------------------|---------------
+[Amazon EC2](https://console.aws.amazon.com/ec2/v2/home) | `t3.small` (2 vCPUs, 2 GiB of memory) | ~15$
+[Google Cloud](https://console.cloud.google.com/compute/instances) | `e2-standard-2` (2 vCPUs, 8 GiB of memory) | ~48$
+[Microsoft Azure](https://portal.azure.com) | `B2s` (2 vCPUS, 4 GiB of memory) | ~30$
+
+### Special instructions for Google Cloud
+{: .no_toc }
+
+On Google Cloud, the EdgeNet public SSH key must be added manually at the bottom of the instance creation page:
+
+<img alt="Google Cloud - Set SSH Key" src="{{ site.baseurl }}/assets/images/gcp-ssh-key.png" width="400px"/>
+
+The SSH key in Google Cloud format is:
+```
+edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet
+```
+
+## From a public cloud with the command-line
+{: .d-inline-block }
+Advanced
+{: .label .label-purple }
+
+These instructions are for advanced users who wish to automate the deployment of EdgeNet instances.
 
 ### Amazon AWS
-
-We recommend a `t3.small` (2 vCPUs, 1 GiB of memory, ~16 USD/month) or larger instance.  
-See [Amazon EC2 On-Demand Pricing](https://aws.amazon.com/ec2/pricing/on-demand/) for the prices of the different
-instance types.
-
-#### From the CLI
+{: .no_toc }
 
 First, install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 and, if not already done, connect your AWS account:
@@ -78,7 +105,8 @@ aws ec2 run-instances \
 Note that the Ubuntu `image-id` is different for each region, to find the id for a given region, use
 the [Amazon EC2 AMI Locator](http://cloud-images.ubuntu.com/locator/ec2/).
 
-##### Cleanup
+#### Cleanup
+{: .no_toc }
 
 To delete the firewall rules and the instance, run the following by replacing the `instance-id`:
 
@@ -88,7 +116,8 @@ aws ec2 terminate-instances --region us-east-1 --instance-ids i-xxxx
 aws ec2 delete-security-group --region us-east-1 --group-name edgenet
 ```
 
-##### Troubleshooting
+#### Troubleshooting
+{: .no_toc }
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance
 using [EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#ec2-instance-connect-connecting-console)
@@ -98,17 +127,8 @@ and send us the logs of the startup script:
 cat /var/log/cloud-init-output.log
 ```
 
-#### From your browser
-
-You can use the [EC2 Management Console](https://console.aws.amazon.com/ec2/v2/home) from your web browser.
-
 ### Google Cloud Platform
-
-We recommend a `e2-standard-2` (2 vCPUs, 8 GiB of memory, ~50 USD/month) or larger instance.
-See [VM instances pricing](https://cloud.google.com/compute/vm-instance-pricing) for the prices of the different
-instance types.
-
-#### From the CLI
+{: .no_toc }
 
 First, install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install), and, if not already done, connect your
 Google account:
@@ -142,7 +162,8 @@ gcloud compute instances create edgenet-1 \
     --zone us-central1-a
 ```
 
-##### Cleanup
+#### Cleanup
+{: .no_toc }
 
 To delete the firewall rules and the instance, run the following:
 
@@ -151,7 +172,8 @@ gcloud compute firewall-rules delete edgenet-ingress
 gcloud compute instances delete edgenet-1 --zone us-central1-a
 ```
 
-##### Troubleshooting
+#### Troubleshooting
+{: .no_toc }
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance and
 send us the logs of the startup script:
@@ -162,18 +184,17 @@ sudo journalctl -u google-startup-scripts.service
 ```
 
 ### Microsoft Azure
+{: .no_toc }
 
-We recommend a `B2S` (2 vCPUs, 4 GiB of memory, ~45 USD/month) or larger instance.
-See [Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/) for the prices of the different instance
-types.
-
-#### From the CLI
-
-Install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and run:
+First, install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and if not already done,
+connect your Microsoft account:
 
 ```bash
-az vm create ...
+az login
 ```
+
+Coming soon
+{: .label .label-yellow }
 
 ## Technical details
 
