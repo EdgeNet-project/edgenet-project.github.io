@@ -27,7 +27,7 @@ If you need help with EdgeNet, kindly contact us at <edgenet-support@planet-lab.
 
 ## Publications Citing EdgeNet
 
-If you have used the EdgeNet platform to conduct your research, please email us about your publications that cite EdgeNet and we will add them to this list.
+If you have used the EdgeNet platform to conduct research, please email us about your publications that cite EdgeNet and we will add them to this list.
 
 [Monitoring an anonymity network: Toward the deanonymization of hidden services](https://dfrws.org/wp-content/uploads/2021/01/2021_APAC_paper-monitoring_an_anonymity_network-toward_the_deanonymization_of_hidden_services.pdf)  
 M. Simionia, P. Gladysheva, B. Habibniaa, and P. R. N. de Souzac  
