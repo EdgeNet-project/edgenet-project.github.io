@@ -19,4 +19,4 @@ and [Kubernetes](https://kubernetes.io/) for deployment and node management.
 
 We extend a special warm welcome to PlanetLab users. 
 If you are a PlanetLab Europe user, there is nothing you need to do: we will migrate your account to EdgeNet shortly.
-If you are a user of the US-based PlanetLab, please send us an e-mail (<timur.friedman@sorbonne-universite.fr>, <rick@mcgeer.com>) so that we can ensure a smooth transition for you as well.
+If you are a user of the now-closed US-based PlanetLab, please write us at <edgenet-support@planet-lab.eu> so that we can ensure a smooth transition for you as well.
