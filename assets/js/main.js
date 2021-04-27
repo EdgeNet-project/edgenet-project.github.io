@@ -51,6 +51,7 @@ const initNodesMap = nodes => {
     const map = L.map("nodes-map").setView([48.0, 2.0], 2);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
         foo: 'bar',
+        tap: false,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     for (const node of nodes) {

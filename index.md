@@ -13,6 +13,8 @@ and [Kubernetes](https://kubernetes.io/) for deployment and node management.
 [☁️&nbsp;&nbsp;I want to contribute a node]({{ site.baseurl }}{% link pages/node-contribution.md %}){: .btn .btn-blue .fs-5 .mb-1 }
 [🧪&nbsp;&nbsp;I want to run an experiment]({{ site.baseurl }}{% link pages/running-experiments.md %}){: .btn .btn-blue .fs-5 .mb-1 }
 
+<div id="nodes-map"></div>
+
 ---
 
 We extend a special warm welcome to PlanetLab users. 

@@ -115,6 +115,9 @@ kubectl apply --kubeconfig /path/to/kubeconfig.cfg -f slice.yaml
 
 ### Creating a deployment
 
+To be updated
+{: .label .label-yellow }
+
 ```yaml
 # deployment.yaml
 apiVersion: apps/v1
