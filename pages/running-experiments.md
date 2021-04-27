@@ -7,37 +7,42 @@ nav_order: 3
 # Running an experiment on EdgeNet
 
 If you are familiar with [Docker](https://www.docker.com/) and [Kubernetes](https://kubernetes.io/),
-you already know how almost everything to deploy experiments on EdgeNet.
-If not, you can rely on the wealth of documentation and tutorials already available online.
-In this page, we describe the basic steps to run an experiment on EdgeNet, as well as the few specific EdgeNet features.
-
-Keep in mind that EdgeNet goal is to provide a globally distributed testbed for network research.
-For more informations on its intended uses, see the [Acceptable Use Policy]({{ site.baseurl }}{% link pages/usage-policy.md %}).
+you already know almost everything that you need to know to deploy experiments on EdgeNet.
+If not, you can rely on the wealth of documentation and tutorials already available for these technologies online.
+This page describes the basic steps required to run an experiment on EdgeNet, with attention to the few EdgeNet-specific features.
 
 ## Registering as a user
 
-### Non-profit institutions
-
 To run experiments on EdgeNet, you need an account on the platform.
-We welcome anyone from non-profit institutions, including universities, research institutes, laboratories and government.
-We simply require the contact informations of a permanent member of the institution (e.g. a professor).
-If you hold a non-permanent position (e.g. a student or an intern), please provide the contact informations of you supervisor or manager.
+We welcome bona fide researchers whose work will benefit from a global testbed that is open to the Internet.
+Its value lies in its distributed vantage points rather than in raw compute power.
+Kindly review the [Acceptable Use Policy]({{ site.baseurl }}{% link pages/usage-policy.md %}) for more details.
+
+### Users at not-for-profit institutions
+
+For researchers at not-for-profit institutions, including universities, research institutes, laboratories, and government,
+we simply require the contact information of a permanent member of the institution, such as a professor or a senior researcher.
+If you hold a non-permanent position, such as student or intern, please provide the contact information of you supervisor or manager.
 
 To register, please follow the link below.
-We will verify your informations and send you your _kubeconfig_ file under 48 hours.
+We will verify the information that you supply and, providing that all checks out, send you your _kubeconfig_ file under 48 hours.
 
 [Create an EdgeNet account](https://console.edge-net.org/signup){: .btn .btn-blue }
 
-### For-profit institutions
+If you expect the platform to be valuable to your research, we ask that you kindly support it by contributing a node from your institution's premises or from a cloud provider.
 
-If you are working at a for-profit institution, please contact us at <edgenet-support@planet-lab.eu>.
+### Users at for-profit institutions
+
+EdgeNet welcomes pre-commercial research conducted by for-profit institutions.
+You may obtain a trial account for free by following the not-for-profit registration instructions, but if you find that it is valuable, we ask that your institution kindly make a financial contribution to support the platform.
+Please write to us at <edgenet-support@planet-lab.eu> so that we can discuss details.
 
 ## Prerequisites
 
-To follow this tutorial, you need to have [Docker](https://www.docker.com/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+To run an experiment, you need to have [Docker](https://www.docker.com/) and [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 installed on your machine.
 You can find the installation instructions on their respective websites.
-You will also need a free account on [Docker Hub](https://hub.docker.com/) to store your containers images.
+You will also need a free account on [Docker Hub](https://hub.docker.com/) to store your container images.
 
 ## Building a container image
 
@@ -57,8 +62,8 @@ The `index.html` file contains a minimal HTML page:
 ```
 
 The `Dockerfile` contains the instructions needed to build the container image.
-We will use the Python built-in webserver to serve our page.
-To do so, we start with an image from [Docker Hub](https://hub.docker.com/) with Python pre-installed:
+We will use Python's built-in web server to serve the page.
+Start with an image from [Docker Hub](https://hub.docker.com/) with Python pre-installed:
 ```dockerfile
 # Dockerfile
 FROM python:latest
@@ -75,28 +80,27 @@ curl http://localhost:8080 # (In another terminal)
 ```
 
 Once we've tested our image, we can tag it and push it to the [Docker Hub](https://hub.docker.com/) registry.
-To do so, start by [creating a repository](https://hub.docker.com/repository/create) on Docker Hub:
+To do so, first [create a repository](https://hub.docker.com/repository/create) on Docker Hub:
 
 ![Docker Hub - Create Repository]({{ site.baseurl }}/assets/images/docker-hub-repository.png)
 
-Then run the following commands by replacing _username_ with your Docker Hub username:
+Then run the following commands, replacing _username_ with your Docker Hub username:
 ```bash
 docker login
 docker tag simple-experiment username/simple-experiment:1.0
 docker push username/simple-experiment:1.0
 ```
 
-**Important:** Make sure that you build your image on an x86-64 machine.
-If you build your image on an ARM machine (such as an Apple M1 CPU), the image will fail to run on EdgeNet nodes with the
-message `exec user process caused "exec format error"`.
+**Important:** Make sure that you build your image on an x86-64 machine, as EdgeNet does not yet support Arm processors, such as the Apple M1 CPU.
+If you build your image on an Arm machine, the image will fail to run on EdgeNet nodes, with the message `exec user process caused "exec format error"`.
 
 ## Deploying containers
 
 ### Creating a slice
 
-Kubernetes [workloads](https://kubernetes.io/docs/concepts/workloads/) cannot be directly created under the authority namespace on EdgeNet.
-You need to create a slice first.
-To do so, create the following `slice.yaml` file by replacing `your-authority` and `your-username` with the corresponding values.
+Your EdgeNet account is associated with what we term an authority, which is the namespace in which you are allowed to work.
+Within your authority namespace, you will create a slice namespace for each Kubernetes [workload](https://kubernetes.io/docs/concepts/workloads/) that you intend to deploy.
+To do so, prepare a `slice.yaml` file by replacing `your-authority` and `your-username` with the corresponding values in the following:
 
 ```yaml
 # slice.yaml
@@ -205,4 +209,4 @@ To avoid passing `-n/--namespace` on each command, you can use a tool like [kube
 
 ## Going further
 
-For more information, refer to the [Docker](https://docs.docker.com) and [Kubernetes](https://kubernetes.io/docs/concepts/) documentations.
+For more information, please refer to the [Docker](https://docs.docker.com) and [Kubernetes](https://kubernetes.io/docs/concepts/) documentation.
