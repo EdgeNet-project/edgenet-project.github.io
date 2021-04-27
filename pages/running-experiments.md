@@ -70,7 +70,7 @@ We can then build and test our image locally:
 ```bash
 docker build -t simple-experiment .
 docker run -p 8080:80 -it simple-experiment
-curl http://localhost:8080
+curl http://localhost:8080 # (In another terminal)
 # <html><body>Hello World!</body></html>
 ```
 
@@ -82,9 +82,13 @@ To do so, start by [creating a repository](https://hub.docker.com/repository/cre
 Then run the following commands by replacing _username_ with your Docker Hub username:
 ```bash
 docker login
-docker tag simple-experiment username/simple-experiment:v1.0
-docker push username/simple-experiment:v1.0
+docker tag simple-experiment username/simple-experiment:1.0
+docker push username/simple-experiment:1.0
 ```
+
+**Important:** Make sure that you build your image on an x86-64 machine.
+If you build your image on an ARM machine (such as an Apple M1 CPU), the image will fail to run on EdgeNet nodes with the
+message `exec user process caused "exec format error"`.
 
 ## Deploying containers
 
@@ -99,7 +103,8 @@ To do so, create the following `slice.yaml` file by replacing `your-authority` a
 apiVersion: apps.edgenet.io/v1alpha
 kind: Slice
 metadata:
-  name: your-username-slice-1
+  name: your-username-1
+  namespace: your-authority
 spec:
   type: Development
   profile: Medium
@@ -120,48 +125,71 @@ To be updated
 
 ```yaml
 # deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: simple-experiment
-  labels:
-    app: nginx
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: nginx
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      containers:
-      - name: nginx
-        image: nginx:1.7.9
-        ports:
-        - containerPort: 80
----
 apiVersion: apps.edgenet.io/v1alpha
 kind: SelectiveDeployment
 metadata:
-  name: city-all
+  name: simple-experiment
+  namespace: your-authority-slice-your-username-1
 spec:
-  controller:
-    - type: Deployment
-      name: deployment1
-  type: City
+  workloads:
+    daemonset:
+      - apiVersion: apps/v1
+        kind: DaemonSet
+        metadata:
+          name: simple-experiment
+          namespace: your-authority-slice-your-username-1
+          labels:
+            app: simple-experiment
+        spec:
+          selector:
+            matchLabels:
+              app: simple-experiment
+          template:
+            metadata:
+              labels:
+                app: simple-experiment
+            spec:
+              containers:
+                - name: simple-experiment
+                  image: username/simple-experiment:1.0
+                  ports:
+                    - containerPort: 80
+                  resources:
+                    limits:
+                      cpu: 100m
+                      memory: 125Mi
+                    requests:
+                      cpu: 100m
+                      memory: 125Mi
   selector:
-    - value: Paris`
+    - value:
+        - North_America
+        - Europe
       operator: In
-      count: 0
-    - value: Los_Angeles
-      operator: In
-      count: 0
+      quantity: 5
+      name: Continent
 ```
 
 ```bash
 kubectl --kubeconfig /path/to/kubeconfig.cfg apply -f deployment.yaml
+```
+
+See the next section for finding the pod names and forwarding the container port.
+
+## Monitoring the experiment
+
+We omit the `--kubeconfig` and `-n` options for brevity here.
+
+```bash
+# View the selective deployment (sd) status:
+kubectl describe sd simple-experiment 
+# View the daemon set (ds) status:
+kubectl kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+  describe ds simple-experiment
+# View the logs of a pod:
+kubectl logs POD_NAME
+# Forward the ports of a pod:
+kubectl port-forward POD_NAME 8080:80
 ```
 
 ## Stopping the experiment
@@ -169,6 +197,14 @@ kubectl --kubeconfig /path/to/kubeconfig.cfg apply -f deployment.yaml
 ```bash
 kubectl --kubeconfig /path/to/kubeconfig.cfg delete -f deployment.yaml
 ```
+
+## Tips
+
+To avoid passing `--kubeconfig` on each command, you can copy your kubeconfig file to `$HOME/.kube/config`,
+or export the `KUBECONFIG` variable.
+For example, `export KUBECONFIG=/home/user/Downloads/kubeconfig.cfg`.
+
+To avoid passing `-n/--namespace` on each command, you can use a tool like [kubectx](https://github.com/ahmetb/kubectx).
 
 ## Going further
 
