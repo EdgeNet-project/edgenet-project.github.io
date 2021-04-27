@@ -6,17 +6,13 @@ nav_order: 6
 
 # About EdgeNet
 
-EdgeNet is a set of Kubernetes extensions based
-on [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The
-EdgeNet source code is freely available on GitHub, and the EdgeNet architecture is described in several scientific
-papers available on HAL.
+EdgeNet, the globally distributed edge cloud for Internet researchers, is based on industry-standard Cloud software, using Docker for containerization and Kubernetes for deployment and node management.
+If you know how to deploy containers with Kubernetes, you know how to use EdgeNet; we welcome you to apply for an account today.
+Anyone who wishes to do so may contribute an EdgeNet node and thereby support the not-for-profit research that is conducted on the platform.  
 
-[EdgeNet's GitHub Repository](https://github.com/EdgeNet-project/edgenet){: .btn .btn-blue }
-[EdgeNet's publications on HAL](https://hal.archives-ouvertes.fr/search/index?q=EdgeNet){: .btn .btn-blue }
+## The EdgeNet Team
 
-## Who we are
-
-EdgeNet is a joint project of [US Ignite](https://www.us-ignite.org), the [LIP6](https://www.lip6.fr/) lab
+EdgeNet is overseen by Rick McGeer, Timur Friedman, Olivier Fourmaux, and Justin Cappos, and is a joint project of [US Ignite](https://www.us-ignite.org), the [LIP6](https://www.lip6.fr/) lab
 at [Sorbonne University](https://www.sorbonne-universite.fr/),
 the [NYU Tandon School of Engineering](https://engineering.nyu.edu/),
 the [Swarm Lab](https://swarmlab.berkeley.edu/home) at [UC Berkeley](https://www.berkeley.edu/),
@@ -24,16 +20,29 @@ the [Computer Science department](https://www.uvic.ca/engineering/computerscienc
 the [University of Victoria](https://www.uvic.ca/), the [University of Vienna](https://www.univie.ac.at/),
 and [Cslash](https://cslash.net/).
 
+The lead developer is Berat Senel, and Maxime Mouchet and Ciro Scognamiglio are principal members of the development team.
+
 The EdgeNet control plane is operated by the [Dioptra](https://dioptra.io) group at Sorbonne University, which also runs [PlanetLab Europe](https://www.planet-lab.eu/).
 If you need help with EdgeNet, kindly contact us at <edgenet-support@planet-lab.eu>.
 
-## Publications using EdgeNet
+## Publications Citing EdgeNet
 
-If you have used EdgeNet in a publication of yours, please email us and we will add it to this list.
+If you have used the EdgeNet platform to conduct your research, please email us about your publications that cite EdgeNet and we will add them to this list.
 
 [Monitoring an anonymity network: Toward the deanonymization of hidden services](https://dfrws.org/wp-content/uploads/2021/01/2021_APAC_paper-monitoring_an_anonymity_network-toward_the_deanonymization_of_hidden_services.pdf)  
 M. Simionia, P. Gladysheva, B. Habibniaa, and P. R. N. de Souzac  
 DFRWS APAC 2021
+
+## The EdgeNet Architecture
+
+EdgeNet is implemented as a set of Kubernetes extensions based
+on [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The
+EdgeNet source code is freely available on GitHub, and the EdgeNet architecture is described in several scientific
+papers that are available via HAL.
+
+[EdgeNet's GitHub Repository](https://github.com/EdgeNet-project/edgenet){: .btn .btn-blue }
+[EdgeNet's publications on HAL](https://hal.archives-ouvertes.fr/search/index?q=EdgeNet){: .btn .btn-blue }
+
 
 ## Acknowledgements
 
