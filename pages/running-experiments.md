@@ -118,8 +118,8 @@ docker tag simple-experiment username/simple-experiment:1.0
 docker push username/simple-experiment:1.0
 ```
 
-**Important:** Make sure that you build your image on an x86-64 machine, as EdgeNet does not yet support Arm processors, such as the Apple M1 CPU.
-If you build your image on an Arm machine, the image will fail to run on EdgeNet nodes and you will receive the message: `exec user process caused "exec format error"`.
+**Important:** Make sure that you build your image on an x86-64 machine, as EdgeNet does not yet support ARM processors, such as the Apple M1 CPU.
+If you build your image on an ARM machine, the image will fail to run on EdgeNet nodes and you will receive the message: `exec user process caused "exec format error"`.
 
 ## Deploying containers
 
