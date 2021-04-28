@@ -6,7 +6,7 @@ nav_order: 2
 
 # Contributing a node to EdgeNet
 
-Anyone who wishes to do socan contribute a node to the EdgeNet project – it just takes five minutes – 
+Anyone who wishes to do so can contribute a node to the EdgeNet project – it just takes five minutes – 
 and thereby support the not-for-profit research that is conducted on the platform. 
 
 A node is a machine, virtual or physical, that
