@@ -19,15 +19,17 @@ For example, it is possible to start a powerful node for the needs of an experim
 
 ## Basic instructions
 
-Run the following command and follow the on-screen instructions 
-of the [Ansible](https://www.ansible.com/) playbook that it downloads:
+Run the following command, which will fetch and execute a shell script,
+and follow the on-screen instructions of the [Ansible](https://www.ansible.com/) playbook 
+that the script downloads:
 
 ```bash
-bash -ci "$(wget -O - https://bootstrap.edge-net.org)"
+bash -ci "$(wget -O - https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh)"
 ```
 
 If it is not already present on your system, you will need to install the [wget](https://www.gnu.org/software/wget/)
 web file retrieval utility in order for the command to work.
+Or you can download the shell script by clicking on [this link](https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh).
 
 The node must have a public IP address and, if it is behind a firewall,
 you will need to configure it to allow incoming connections from at least the following protocols and ports:
