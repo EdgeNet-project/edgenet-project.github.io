@@ -15,7 +15,7 @@ is possible to start a powerful node for the needs of an experiment, and to stop
 
 The machine can be virtual or physical. It must have a public IP address, and at-least 2 CPU cores, and 1 GiB of memory. The 
 ed operating systems
-are CentOS 8+, Fedora 32+, and Ubuntu 18.04+. EdgeNet does not yet support Arm processors or OpenVZ virtual machines.
+are CentOS 8+, Fedora 32+, and Ubuntu 18.04+. EdgeNet does not yet support ARM processors or OpenVZ virtual machines.
 
 Make sure that [wget](https://www.gnu.org/software/wget/) is installed, run the following command,
 and follow the on-screen instructions:
@@ -33,7 +33,7 @@ machine to <edgenet-support@planet-lab.eu>.
 ## From a public cloud
 
 You can easily run multiple EdgeNet instances in the cloud. You can choose the instance type you want, although we
-recommend instances with at least 2 vCPUs and 1 GiB of memory. EdgeNet does not yet support Arm instances.
+recommend instances with at least 2 vCPUs and 1 GiB of memory. EdgeNet does not yet support ARM instances.
 
 Simply create an instance of your liking using the web interface, connect with SSH to it, and run the boostrap script
 as described for a dedicated machine, above. The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
