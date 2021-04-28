@@ -9,35 +9,35 @@ nav_order: 2
 Anyone can contribute a node to the EdgeNet project. A node is a machine, virtual or physical, that
 hosts [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/), the Kubernetes agent,
 and [Docker](https://www.docker.com/), the container runtime. Nodes can be contributed for any duration. For example, it
-is possible to start a powerful node for the need of an experiment, and to stop it after.
+is possible to start a powerful node for the needs of an experiment, and to stop it afterwards.
 
 ## From a dedicated machine
 
-The machine must have a public IP address, and at-least 2 CPU cores and 1 GiB of memory. The supported operating systems
-are CentOS 8+, Fedora 32+ and Ubuntu 18.04+ Currently, OpenVZ virtual machines as well as ARM processors are not
-supported.
+The machine can be virtual or physical. It must have a public IP address, and at-least 2 CPU cores, and 1 GiB of memory. The 
+ed operating systems
+are CentOS 8+, Fedora 32+, and Ubuntu 18.04+. EdgeNet does not yet support ARM processors or OpenVZ virtual machines.
 
-On a physical or virtual machine with [wget](https://www.gnu.org/software/wget/) installed, run the following command
+Make sure that [wget](https://www.gnu.org/software/wget/) is installed, run the following command,
 and follow the on-screen instructions:
 
 ```bash
 bash -ci "$(wget -O - https://bootstrap.edge-net.org)"
 ```
 
-If you have a firewall in front of the machine, at-least the following ports and protocols must be allowed:
+If you have a firewall in front of the machine, it must allow incoming connections for the following protocols and ports:
 `tcp:22,179,2379,5473,10250,25010,30000-32767`, `icmp` and `ipip`.
 
-If you encounter a problem during the setup, simply send us the output of the script and the public IP address of the
-machine.
+If you encounter a problem during setup, please send the output of the script and the public IP address of the
+machine to <edgenet-support@planet-lab.eu>.
 
 ## From a public cloud
 
 You can easily run multiple EdgeNet instances in the cloud. You can choose the instance type you want, although we
-recommend instances with at-least 2 vCPUs and 1 GiB of memory. ARM instances are not currently supported.
+recommend instances with at least 2 vCPUs and 1 GiB of memory. EdgeNet does not yet support ARM instances.
 
 Simply create an instance of your liking using the web interface, connect with SSH to it, and run the boostrap script
-as described above. The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
-the ports described above are allowed for incoming connections.
+as described for a dedicated machine, above. The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
+the protocols and ports described above are allowed for incoming connections.
 
 Provider | Minimal instance recommended | Cost per month
 ---------|------------------------------|---------------
@@ -56,7 +56,7 @@ The SSH key in Google Cloud format is:
 edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet
 ```
 
-## From a public cloud with the command-line
+## From a public cloud with the command line
 {: .d-inline-block }
 Advanced
 {: .label .label-purple }
@@ -74,12 +74,12 @@ and, if not already done, connect your AWS account:
 aws configure
 ```
 
-We consider here a [`t3.small`](https://aws.amazon.com/ec2/instance-types/t3/) instance
+We consider here a [`t3.small`](https://aws.amazon.com/ec2/instance-types/t3/) instance in
 the [`us-east-1`](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions)
-region. To use a different instance type and/or region, simply replace those values in the commands below.
+region. To use a different instance type and/or region, just replace those values in the commands below.
 
 To keep things simple here, we allow all incoming connections towards the instance. You can restrict incoming
-connections as you like, as long as you keep the ports listed above open.
+connections as you like, as long as you keep the protocols and ports listed above open.
 
 ```bash
 aws ec2 create-security-group --region us-east-1 --group-name edgenet --description "EdgeNet"
@@ -98,12 +98,12 @@ aws ec2 run-instances \
   --user-data file://bootstrap.sh
 ```
 
-Note that the Ubuntu `image-id` is different for each region, to find the id for a given region, use
+Note that the Ubuntu `image-id` is different for each region, to find the ID for a given region, use
 the [Amazon EC2 AMI Locator](http://cloud-images.ubuntu.com/locator/ec2/).
 
 #### Cleanup
 
-To delete the firewall rules and the instance, run the following by replacing the `instance-id`:
+To delete the firewall rules and the instance, run the following, replacing the `instance-id`:
 
 ```bash
 aws ec2 terminate-instances --region us-east-1 --instance-ids i-xxxx
@@ -115,7 +115,7 @@ aws ec2 delete-security-group --region us-east-1 --group-name edgenet
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance
 using [EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#ec2-instance-connect-connecting-console)
-and send us the logs of the startup script:
+and send the logs of the startup script to <edgenet-support@planet-lab.eu>:
 
 ```bash
 cat /var/log/cloud-init-output.log
@@ -131,7 +131,7 @@ gcloud init
 ```
 
 To keep things simple here, we allow all incoming connections towards the instances with the `edgenet` tag. You can
-restrict incoming connections as you like, as long as you keep the ports listed above open.
+restrict incoming connections as you like, as long as you keep the protocols and ports listed above open.
 
 ```bash
 gcloud compute firewall-rules create edgenet-ingress \
@@ -167,7 +167,7 @@ gcloud compute instances delete edgenet-1 --zone us-central1-a
 #### Troubleshooting
 
 If you encounter a problem, delete the instance and try again. If the problem persists you can SSH into the instance and
-send us the logs of the startup script:
+send the logs of the startup script to <edgenet-support@planet-lab.eu>:
 
 ```bash
 gcloud compute ssh edgenet-test-1 --zone us-central1-a
