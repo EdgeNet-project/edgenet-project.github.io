@@ -6,37 +6,53 @@ nav_order: 2
 
 # Contributing a node to EdgeNet
 
-Anyone can contribute a node to the EdgeNet project. A node is a machine, virtual or physical, that
+Anyone who wishes to do socan contribute a node to the EdgeNet project – it just takes five minutes – 
+and thereby support the not-for-profit research that is conducted on the platform. 
+
+A node is a machine, virtual or physical, that
 hosts [kubelet](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/), the Kubernetes agent,
-and [Docker](https://www.docker.com/), the container runtime. Nodes can be contributed for any duration. For example, it
-is possible to start a powerful node for the needs of an experiment, and to stop it afterwards.
+and [Docker](https://www.docker.com/), the container runtime.
 
-## From a dedicated machine
+Nodes can be contributed for any duration.
+For example, it is possible to start a powerful node for the needs of an experiment and to stop it afterwards.
 
-The machine can be virtual or physical. It must have a public IP address, and at-least 2 CPU cores, and 1 GiB of memory. The 
-ed operating systems
-are CentOS 8+, Fedora 32+, and Ubuntu 18.04+. EdgeNet does not yet support ARM processors or OpenVZ virtual machines.
 
-Make sure that [wget](https://www.gnu.org/software/wget/) is installed, run the following command,
-and follow the on-screen instructions:
+## Basic instructions
+
+Run the following command and follow the on-screen instructions 
+of the [Ansible](https://www.ansible.com/) playbook that it downloads:
 
 ```bash
 bash -ci "$(wget -O - https://bootstrap.edge-net.org)"
 ```
 
-If you have a firewall in front of the machine, it must allow incoming connections for the following protocols and ports:
+If it is not already present on your system, you will need to install the [wget](https://www.gnu.org/software/wget/)
+web file retrieval utility in order for the command to work.
+
+The node must have a public IP address and, if it is behind a firewall,
+you will need to configure it to allow incoming connections from at least the following protocols and ports:
 `tcp:22,179,2379,5473,10250,25010,30000-32767`, `icmp` and `ipip`.
 
-If you encounter a problem during setup, please send the output of the script and the public IP address of the
+If you encounter a problem during setup, please email the script output and the public IP address of the
 machine to <edgenet-support@planet-lab.eu>.
+
+
+## From a machine on your premises
+
+A node can be a VM on a machine that you control, or you can dedicate a physical machine to EdgeNet.
+EdgeNet can be installed on a CentOS 8+, Fedora 32+, or Ubuntu 18.04+ operating system.
+The machine should have at least 2 CPU cores, and 1 GiB of memory. 
+EdgeNet does not yet support ARM processors or OpenVZ virtual machines.
+
 
 ## From a public cloud
 
 You can easily run multiple EdgeNet instances in the cloud. You can choose the instance type you want, although we
 recommend instances with at least 2 vCPUs and 1 GiB of memory. EdgeNet does not yet support ARM instances.
 
-Simply create an instance of your liking using the web interface, connect with SSH to it, and run the boostrap script
-as described for a dedicated machine, above. The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
+Simply create an instance of your liking using the cloud service provider's web interface, connect to it via SSH, 
+and follow the basic instructions described above.
+The default settings of the providers are usually correct for EdgeNet, but you need to ensure that
 the protocols and ports described above are allowed for incoming connections.
 
 Provider | Minimal instance recommended | Cost per month
@@ -190,5 +206,4 @@ Coming soon
 
 ## Technical details
 
-We use [Ansible](https://www.ansible.com/) to deploy nodes. See
-the [EdgeNet-Project/node](https://github.com/EdgeNet-project/node/) repository for more information.
+See the [EdgeNet-Project/node](https://github.com/EdgeNet-project/node/) repository for more information.
