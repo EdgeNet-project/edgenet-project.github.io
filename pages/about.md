@@ -7,8 +7,8 @@ nav_order: 6
 # About EdgeNet
 
 EdgeNet, the globally distributed edge cloud for Internet researchers, is based on industry-standard Cloud software, using Docker for containerization and Kubernetes for deployment and node management.
-If you know how to deploy containers with Kubernetes, you know how to use EdgeNet; we welcome you to apply for an account today.
-Anyone who wishes to do so may contribute an EdgeNet node and thereby support the not-for-profit research that is conducted on the platform.  
+If you know how to deploy containers with Kubernetes, you know how to use EdgeNet; we welcome you to [register for a free account]({{ site.baseurl }}{% link pages/running-experiments.md %}) today.
+Anyone who wishes to do so may [contribute an EdgeNet node]({{ site.baseurl }}{% link pages/node-contribution.md %}) -- it just takes five minutes -- and thereby support the not-for-profit research that is conducted on the platform.  
 
 ## The EdgeNet Team
 
