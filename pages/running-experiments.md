@@ -22,19 +22,20 @@ Kindly review the [Acceptable Use Policy]({{ site.baseurl }}{% link pages/usage-
 
 For researchers at not-for-profit institutions, including universities, research institutes, laboratories, and government,
 we simply require the contact information of a permanent member of the institution, such as a professor or a senior researcher.
-If you hold a non-permanent position, such as student or intern, please provide the contact information of you supervisor or manager.
+If you hold a non-permanent position, such as student or intern, please provide the contact information of your supervisor or manager.
 
 To register, please follow the link below.
-We will verify the information that you supply and, providing that all checks out, send you your _kubeconfig_ file under 48 hours.
+We will verify the information that you supply and, providing that all checks out, send you your _kubeconfig_ file within 48 hours.
 
 [Create an EdgeNet account](https://console.edge-net.org/signup){: .btn .btn-blue }
 
-If you expect the platform to be valuable to your research, we ask that you kindly support it by contributing a node from your institution's premises or from a cloud provider.
+If you expect the platform to be valuable to your research, we ask that you kindly support it by [contributing a node]({{ site.baseurl }}{% link pages/node-contribution.md %}) from your institution's premises or from a cloud provider.
 
 ### Users at for-profit institutions
 
 EdgeNet welcomes pre-commercial research conducted by for-profit institutions.
-You may obtain a trial account for free by following the not-for-profit registration instructions, but if you find that it is valuable, we ask that your institution kindly make a financial contribution to support the platform.
+You may obtain a trial account for free by following the not-for-profit registration instructions, above.
+If you find that EdgeNet is valuable for your work, we ask that your institution kindly make a financial contribution to support the platform.
 Please write to us at <edgenet-support@planet-lab.eu> so that we can discuss details.
 
 ## Prerequisites
@@ -63,7 +64,7 @@ The `index.html` file contains a minimal HTML page:
 
 The `Dockerfile` contains the instructions needed to build the container image.
 We will use Python's built-in web server to serve the page.
-Start with an image from [Docker Hub](https://hub.docker.com/) with Python pre-installed:
+Start with an image from [Docker Hub](https://hub.docker.com/) that has Python pre-installed:
 ```dockerfile
 # Dockerfile
 FROM python:latest
@@ -84,7 +85,7 @@ To do so, first [create a repository](https://hub.docker.com/repository/create) 
 
 ![Docker Hub - Create Repository]({{ site.baseurl }}/assets/images/docker-hub-repository.png)
 
-Then run the following commands, replacing _username_ with your Docker Hub username:
+Then run the following commands, replacing _username_ with your Docker Hub user name:
 ```bash
 docker login
 docker tag simple-experiment username/simple-experiment:1.0
@@ -92,14 +93,14 @@ docker push username/simple-experiment:1.0
 ```
 
 **Important:** Make sure that you build your image on an x86-64 machine, as EdgeNet does not yet support Arm processors, such as the Apple M1 CPU.
-If you build your image on an Arm machine, the image will fail to run on EdgeNet nodes, with the message `exec user process caused "exec format error"`.
+If you build your image on an Arm machine, the image will fail to run on EdgeNet nodes and you will receive the message: `exec user process caused "exec format error"`.
 
 ## Deploying containers
 
 ### Creating a slice
 
-Your EdgeNet account is associated with what we term an authority, which is the namespace in which you are allowed to work.
-Within your authority namespace, you will create a slice namespace for each Kubernetes [workload](https://kubernetes.io/docs/concepts/workloads/) that you intend to deploy.
+Your EdgeNet account is associated with what we term an _authority_, which is the namespace in which you are allowed to work.
+Within your authority namespace, you will create a _slice_ namespace for each Kubernetes [workload](https://kubernetes.io/docs/concepts/workloads/) that you intend to deploy.
 To do so, prepare a `slice.yaml` file by replacing `your-authority` and `your-username` with the corresponding values in the following:
 
 ```yaml
@@ -123,6 +124,8 @@ kubectl apply --kubeconfig /path/to/kubeconfig.cfg -f slice.yaml
 ```
 
 ### Creating a deployment
+
+Here is an example `deployment.yaml` file:
 
 ```yaml
 # deployment.yaml
@@ -171,25 +174,39 @@ spec:
       name: Continent
 ```
 
+And here is the command to launch it (provide the correct path to your `kuheconfig` file):
+
 ```bash
 kubectl --kubeconfig /path/to/kubeconfig.cfg apply -f deployment.yaml
 ```
 
-See the next section for finding the pod names and forwarding the container port.
-
 ## Monitoring the experiment
 
+These commands allow you to find the pod names and to forward the container port.
 We omit the `--kubeconfig` and `-n` options for brevity here.
 
+View the selective deployment (sd) status:
+
 ```bash
-# View the selective deployment (sd) status:
 kubectl describe sd simple-experiment 
-# View the daemon set (ds) status:
+```
+
+View the daemon set (ds) status:
+
+```bash
 kubectl kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
   describe ds simple-experiment
-# View the logs of a pod:
+```
+
+View the logs of a pod:
+
+```bash
 kubectl logs POD_NAME
-# Forward the ports of a pod:
+```
+
+Forward the ports of a pod:
+
+```bash
 kubectl port-forward POD_NAME 8080:80
 ```
 
