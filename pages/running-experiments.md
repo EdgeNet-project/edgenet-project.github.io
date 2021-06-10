@@ -224,26 +224,29 @@ We omit the `--kubeconfig` and `-n` options for brevity here.
 View the selective deployment (sd) status:
 
 ```bash
-kubectl describe sd simple-experiment 
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+    describe sd simple-experiment 
 ```
 
 View the daemon set (ds) status:
 
 ```bash
-kubectl kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
   describe ds simple-experiment
 ```
 
 View the logs of a pod:
 
 ```bash
-kubectl logs POD_NAME
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+    logs POD_NAME
 ```
 
 Forward the ports of a pod:
 
 ```bash
-kubectl port-forward POD_NAME 8080:80
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+    port-forward POD_NAME 8080:80
 ```
 
 ## Stopping the experiment
