@@ -44,13 +44,13 @@ machine to <edgenet-support@planet-lab.eu>.
 A node can be a VM on a machine that you control, or you can dedicate a physical machine to EdgeNet.
 EdgeNet can be installed on a CentOS 8+, Fedora 32+, or Ubuntu 18.04+ operating system.
 The machine should have at least 2 CPU cores, and 1 GiB of memory. 
-EdgeNet does not yet support ARM processors or OpenVZ virtual machines.
+EdgeNet does not run inside containers, such as Docker or OpenVZ containers.
 
 
 ## From a public cloud
 
 You can easily run multiple EdgeNet instances in the cloud. You can choose the instance type you want, although we
-recommend instances with at least 2 vCPUs and 1 GiB of memory. EdgeNet does not yet support ARM instances.
+recommend instances with at least 2 vCPUs and 1 GiB of memory.
 
 Simply create an instance of your liking using the cloud service provider's web interface, connect to it via SSH, 
 and follow the basic instructions described above.

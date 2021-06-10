@@ -9,7 +9,8 @@ nav_order: 3
 If you are familiar with [Docker](https://www.docker.com/) and [Kubernetes](https://kubernetes.io/),
 you already know almost everything that you need to know to deploy experiments on EdgeNet.
 If not, you can rely on the wealth of documentation and tutorials already available for these technologies online.
-This page describes the basic steps required to run an experiment on EdgeNet, with attention to the few EdgeNet-specific features.
+This page describes the basic steps required to run an experiment on EdgeNet, with attention to the few EdgeNet-specific features:
+user registration, user namespaces and selective deployments.
 
 ## Register for a free account
 
@@ -118,8 +119,17 @@ docker tag simple-experiment username/simple-experiment:1.0
 docker push username/simple-experiment:1.0
 ```
 
-**Important:** Make sure that you build your image on an x86-64 machine, as EdgeNet does not yet support ARM processors, such as the Apple M1 CPU.
-If you build your image on an ARM machine, the image will fail to run on EdgeNet nodes and you will receive the message: `exec user process caused "exec format error"`.
+### CPU architecture
+
+EdgeNet supports both nodes with ARM64 and x86-64 CPUs.
+If the binaries in your image do not match the target node architecture, it will fail to run with the message: `exec user process caused "exec format error"`.
+For example, if you build a C++ program in your Dockerfile, this program will by default be compiled for the architecture of your machine:
+If you're running Docker on an Intel MacBook, it will produce an x86-64 binary, while if you run it on an M1 MacBook, it will produce an ARM64 binary.
+
+Docker also supports building multi-architecture image on a single machine, by emulating the target CPUs architecture.
+The following tutorials provides more information:
+- [Building Multi-Arch Images for Arm and x86 with Docker Desktop](https://www.docker.com/blog/multi-arch-images/)
+- [Continuous Cross-Architecture Integration with GitLab](https://community.arm.com/developer/research/b/articles/posts/continuous-cross-architecture-integration-with-gitlab)
 
 ## Deploying containers
 
@@ -200,7 +210,7 @@ spec:
       name: Continent
 ```
 
-And here is the command to launch it (provide the correct path to your `kuheconfig` file):
+And here is the command to launch it (provide the correct path to your `kubeconfig` file):
 
 ```bash
 kubectl --kubeconfig /path/to/kubeconfig.cfg apply -f deployment.yaml
