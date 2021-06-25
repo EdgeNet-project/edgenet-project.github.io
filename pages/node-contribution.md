@@ -107,7 +107,7 @@ aws ec2 authorize-security-group-ingress --region us-east-1 --group-name edgenet
 To create the instance, run the following:
 
 ```bash
-wget https://bootstrap.edgenet.org
+wget https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh
 aws ec2 run-instances \
   --region us-east-1 \
   --image-id ami-033558be0aac13adc \
@@ -166,7 +166,7 @@ gcloud compute instances create edgenet-1 \
     --image-family=ubuntu-2004-lts \
     --image-project=ubuntu-os-cloud \
     --machine-type=e2-standard-2 \
-    --metadata startup-script-url='https://bootstrap.edge-net.org',ssh-keys='edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet' \
+    --metadata startup-script-url='https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh',ssh-keys='edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet' \
     --no-scopes \
     --no-service-account \
     --tags=edgenet \
