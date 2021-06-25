@@ -71,7 +71,7 @@ On Google Cloud, the EdgeNet public SSH key must be added manually at the bottom
 
 The SSH key in Google Cloud format is:
 ```
-edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet
+edgenet:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjtRjXehOq2CkwI3dsDeec5mC8KxykSoSeywES4nrw9 edgenet
 ```
 
 ## From a public cloud with the command line
@@ -166,11 +166,11 @@ gcloud compute instances create edgenet-1 \
     --image-family=ubuntu-2004-lts \
     --image-project=ubuntu-os-cloud \
     --machine-type=e2-standard-2 \
-    --metadata startup-script-url='https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh',ssh-keys='edgenet:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDv+9LemKEmusyhq+4TCy4Uq9y+dj3uAEBLR5ZqYVw5fATWif15PRB+TvN2YCcBGJqbtmNokKIiUQq6i53CbzmCdBVsEFBlanDUqt4xHjnJI4vnYyjeltepC6TmFDqRq15KutS2dVF2XQ6uH3LGSHXBDlaguDSpEP5pa3DaiZqRdUpAItFXY0g4O80g3qmzj1lzkb/5briRyB4wOBgT+J4fnbSawXbAaXV49TQhjMDyDDVTRNCiUwAa1jaAkh17rK4aweVu0t+rkGv42gpIyJEvWHGxXeSqbegjFYljsKeI21s8yzAHyxHDT90053Pno4vyrfAXWWJR5JlGl1tNy3P9 edgenet' \
+    --metadata startup-script-url='https://raw.githubusercontent.com/EdgeNet-project/node/main/bootstrap.sh',ssh-keys='edgenet:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKjtRjXehOq2CkwI3dsDeec5mC8KxykSoSeywES4nrw9 edgenet' \
     --no-scopes \
     --no-service-account \
     --tags=edgenet \
-    --zone us-central1-a
+    --zone=us-central1-a
 ```
 
 #### Cleanup
@@ -179,7 +179,7 @@ To delete the firewall rules and the instance, run the following:
 
 ```bash
 gcloud compute firewall-rules delete edgenet-ingress
-gcloud compute instances delete edgenet-1 --zone us-central1-a
+gcloud compute instances delete edgenet-1 --zone=us-central1-a
 ```
 
 #### Troubleshooting
@@ -188,7 +188,7 @@ If you encounter a problem, delete the instance and try again. If the problem pe
 send the logs of the startup script to <edgenet-support@planet-lab.eu>:
 
 ```bash
-gcloud compute ssh edgenet-test-1 --zone us-central1-a
+gcloud compute ssh edgenet-1 --zone=us-central1-a
 sudo journalctl -u google-startup-scripts.service
 ```
 
