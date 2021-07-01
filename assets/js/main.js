@@ -48,7 +48,7 @@ const initNodesTable = nodes => {
 };
 
 const initNodesMap = nodes => {
-    const map = L.map("nodes-map").setView([48.0, 2.0], 2);
+    const map = L.map("nodes-map").setView([48.0, 2.0], 1.5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
         foo: 'bar',
         tap: false,
