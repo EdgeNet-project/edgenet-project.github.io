@@ -3,7 +3,7 @@ all: bundle build
 
 .PHONY: bundle
 bundle:
-	bundle --path vendor/bundle
+	bundle
 
 .PHONY: build
 build:

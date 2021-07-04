@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    command: jekyll server --host 0.0.0.0 --port 4000 --livereload --livereload-port 35729
+    ports:
+      - "4000:4000"
+      - "35729:35729"
+    volumes:
+      - .:/app

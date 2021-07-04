@@ -6,3 +6,8 @@ To develop locally:
 ```bash
 make server
 ```
+
+Or with Docker:
+```bash
+docker compose up
+```
