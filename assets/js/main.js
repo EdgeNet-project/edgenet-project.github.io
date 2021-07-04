@@ -1,3 +1,9 @@
+// Kubernetes API omits the "B" in the unit...
+math.createUnit("Ki", "1 KiB")
+math.createUnit("Mi", "1 MiB")
+math.createUnit("Gi", "1 GiB")
+math.createUnit("Ti", "1 TiB")
+
 const getNodes = callback => {
     $.ajax({
         url: "https://apiserver.edge-net.org/api/v1/nodes",
@@ -26,6 +32,10 @@ const parseNode = node => {
         region: node.metadata.labels["edge-net.io/state-iso"],
         country: node.metadata.labels["edge-net.io/country-iso"],
         creationDate: new Date(node.metadata.creationTimestamp),
+        architecture: node.status.nodeInfo.architecture,
+        cores: node.status.capacity.cpu,
+        memory: math.round(math.unit(node.status.capacity.memory).toNumber("Gi")),
+        storage: math.round(math.unit(node.status.capacity["ephemeral-storage"]).toNumber("Gi")),
         ready: ready
     }
 };
@@ -48,10 +58,9 @@ const initNodesTable = nodes => {
 };
 
 const initNodesMap = nodes => {
-    const map = L.map("nodes-map").setView([48.0, 2.0], 1.5);
+    const map = L.map("nodes-map", {tap: false}).setView([48.0, 2.0], 1);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {
         foo: 'bar',
-        tap: false,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     for (const node of nodes) {
@@ -59,6 +68,10 @@ const initNodesMap = nodes => {
         marker.bindPopup(`
             <strong>${node.name}</strong>
             <ul>
+                <li><strong>Architecture:</strong> ${node.architecture}</li>
+                <li><strong>CPU Cores:</strong> ${node.cores}</li>
+                <li><strong>Memory:</strong> ${node.memory} GiB</li>
+                <li><strong>Storage:</strong> ${node.storage} GiB</li>
                 <li><strong>City:</strong> ${node.city}</li>
                 <li><strong>Region:</strong> ${node.region}</li>
                 <li><strong>Country:</strong> ${node.country}</li>
@@ -72,7 +85,7 @@ const initNodesMap = nodes => {
 $(document).ready(() => {
     getNodes(nodes => {
         // TODO: Display # of nodes/ready nodes.
-        initNodesTable(nodes);
+        // initNodesTable(nodes);
         initNodesMap(nodes);
     });
 });
