@@ -133,32 +133,6 @@ The following tutorials provides more information:
 
 ## Deploying containers
 
-### Creating a slice
-
-Your EdgeNet account is associated with what we term an _authority_, which is the namespace in which you are allowed to work.
-Within your authority namespace, you will create a _slice_ namespace for each Kubernetes [workload](https://kubernetes.io/docs/concepts/workloads/) that you intend to deploy.
-To do so, prepare a `slice.yaml` file by replacing `your-authority` and `your-username` with the corresponding values in the following:
-
-```yaml
-# slice.yaml
-apiVersion: apps.edgenet.io/v1alpha
-kind: Slice
-metadata:
-  name: your-username-1
-  namespace: your-authority
-spec:
-  type: Development
-  profile: Medium
-  users:
-    - authority: your-authority
-      username: your-username
-```
-
-Then run:
-```bash
-kubectl apply --kubeconfig /path/to/kubeconfig.cfg -f slice.yaml
-```
-
 ### Creating a deployment
 
 Here is an example `deployment.yaml` file:
@@ -169,7 +143,7 @@ apiVersion: apps.edgenet.io/v1alpha
 kind: SelectiveDeployment
 metadata:
   name: simple-experiment
-  namespace: your-authority-slice-your-username-1
+  namespace: your-tenant
 spec:
   workloads:
     daemonset:
@@ -177,7 +151,7 @@ spec:
         kind: DaemonSet
         metadata:
           name: simple-experiment
-          namespace: your-authority-slice-your-username-1
+          namespace: your-tenant
           labels:
             app: simple-experiment
         spec:
@@ -224,28 +198,28 @@ We omit the `--kubeconfig` and `-n` options for brevity here.
 View the selective deployment (sd) status:
 
 ```bash
-kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-tenant \
     describe sd simple-experiment 
 ```
 
 View the daemon set (ds) status:
 
 ```bash
-kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-tenant \
   describe ds simple-experiment
 ```
 
 View the logs of a pod:
 
 ```bash
-kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-tenant \
     logs POD_NAME
 ```
 
 Forward the ports of a pod:
 
 ```bash
-kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-authority-slice-your-username-1 \
+kubectl --kubeconfig /path/to/kubeconfig.cfg -n your-tenant \
     port-forward POD_NAME 8080:80
 ```
 
