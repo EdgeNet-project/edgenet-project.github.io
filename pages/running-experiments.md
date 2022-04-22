@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Run an Experiment
-nav_order: 4
+nav_order: 3
 ---
 
 # Running an experiment on EdgeNet

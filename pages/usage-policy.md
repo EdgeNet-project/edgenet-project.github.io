@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Acceptable Use Policy
-nav_order: 5
+nav_order: 4
 ---
 
 # EdgeNet Acceptable Use Policy
