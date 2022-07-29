@@ -18,13 +18,15 @@ We welcome bona fide researchers and instructors whose work will benefit from a 
 Its value lies in its distributed vantage points rather than in raw compute power.
 Kindly review the [Acceptable Use Policy]({{ site.baseurl }}{% link pages/usage-policy.md %}) for more details.
 
-To run experiments on EdgeNet, you need an account that you can obtain for free by signing up on the web console:
+To run experiments on EdgeNet, you need an account that you can obtain for free by signing up on the landing app 
+(the web console is under construction):
 
-[Create an EdgeNet account](https://console.edge-net.org/signup){: .btn .btn-blue }
+[Create an EdgeNet account](https://landing.edge-net.org/){: .btn .btn-blue }
 
 Please provide an institutional e-mail address.
 EdgeNet administrators will verify the information that you provide and, if all checks out, 
-send you your _kubeconfig_ file within 48 hours, at which point you can start using the system.
+you can download your _kubeconfig_ file or access the Kubernetes dashboard via the landing app, 
+at which point you can start using the system.
 
 If you work as part of a team that has not yet signed up,
 please start by registering an account for your team leader
