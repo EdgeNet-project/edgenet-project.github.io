@@ -18,6 +18,10 @@ const getNodes = callback => {
 }
 
 const parseNode = node => {
+    if (!node.metadata.labels.hasOwnProperty("edge-net.io/lat") || !node.metadata.labels.hasOwnProperty("edge-net.io/lon")) {
+        return null; // Return null if lat or lon labels are missing
+    }
+
     let ready = false;
     for (const condition of node.status.conditions) {
         if ((condition.type === "Ready") && condition.status === "True") {
@@ -64,21 +68,23 @@ const initNodesMap = nodes => {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     for (const node of nodes) {
-        const marker = L.marker([node.latitude, node.longitude]).addTo(map);
-        marker.bindPopup(`
-            <strong>${node.name}</strong>
-            <ul>
-                <li><strong>Architecture:</strong> ${node.architecture}</li>
-                <li><strong>CPU Cores:</strong> ${node.cores}</li>
-                <li><strong>Memory:</strong> ${node.memory} GiB</li>
-                <li><strong>Storage:</strong> ${node.storage} GiB</li>
-                <li><strong>City:</strong> ${node.city}</li>
-                <li><strong>Region:</strong> ${node.region}</li>
-                <li><strong>Country:</strong> ${node.country}</li>
-                <li><strong>Date Added:</strong> ${node.creationDate.toLocaleDateString("en-us")}</li>
-                <li><strong>Status:</strong> ${node.ready ? "Ready" : "Not Ready"}</li>
-            </ul>
-        `);
+        if (node != null) {
+            const marker = L.marker([node.latitude, node.longitude]).addTo(map);
+            marker.bindPopup(`
+                <strong>${node.name}</strong>
+                <ul>
+                    <li><strong>Architecture:</strong> ${node.architecture}</li>
+                    <li><strong>CPU Cores:</strong> ${node.cores}</li>
+                    <li><strong>Memory:</strong> ${node.memory} GiB</li>
+                    <li><strong>Storage:</strong> ${node.storage} GiB</li>
+                    <li><strong>City:</strong> ${node.city}</li>
+                    <li><strong>Region:</strong> ${node.region}</li>
+                    <li><strong>Country:</strong> ${node.country}</li>
+                    <li><strong>Date Added:</strong> ${node.creationDate.toLocaleDateString("en-us")}</li>
+                    <li><strong>Status:</strong> ${node.ready ? "Ready" : "Not Ready"}</li>
+                </ul>
+            `);
+        }  
     }
 };
 
