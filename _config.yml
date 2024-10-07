@@ -19,7 +19,7 @@
 # in the templates via {{ site.myvariable }}.
 
 title: EdgeNet
-email: edgenet-support@planet-lab.eu
+email: support@edge-net.org
 description: >-
   A Kubernetes-based internet edge testbed.
 url: "https://edgenet-project.github.io"
