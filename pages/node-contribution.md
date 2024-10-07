@@ -1,7 +1,7 @@
 ---
-layout: "page"
-title: "Contribute a Node"
-nav_order: 2
+layout: page
+title: Contributing a Node
+nav_order: 3
 ---
 
 # Contributing a node to EdgeNet

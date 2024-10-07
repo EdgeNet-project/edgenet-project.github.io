@@ -37,6 +37,10 @@ color_scheme: edgenet
 logo: "/assets/images/edgenet_logo_2020_05_03_w_text_075dpi.png"
 search_enabled: false
 
+aux_links:
+  "Just the Docs on GitHub":
+    - "//github.com/just-the-docs/just-the-docs"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
