@@ -38,8 +38,10 @@ logo: "/assets/images/edgenet_logo_2020_05_03_w_text_075dpi.png"
 search_enabled: false
 
 aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/just-the-docs/just-the-docs"
+  "GitHub":
+    - "//github.com/EdgeNet-project"
+  "PlanetLab":
+    - "//planetlab.io"
 
 # Exclude from processing.
 # The following items will not be processed, by default.

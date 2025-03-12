@@ -1,17 +1,9 @@
 ---
-layout: "page"
-title: "About"
-nav_order: 5
+layout: page
+title: About
+nav_order: 3
 ---
-
 # About EdgeNet
-
-EdgeNet, the globally distributed edge cloud for Internet researchers, is based on industry-standard 
-Cloud software, using Docker for containerization and Kubernetes for deployment and node management.
-If you know how to deploy containers with Kubernetes, you know how to use EdgeNet; we welcome you to 
-[register for a free account]({{ site.baseurl }}{% link pages/running-experiments.md %}) today.
-Anyone who wishes to do so may [contribute an EdgeNet node]({{ site.baseurl }}{% link pages/node-contribution.md %}) 
--- it just takes five minutes -- and thereby support the not-for-profit research that is conducted on the platform.  
 
 ## The EdgeNet Team
 
@@ -54,7 +46,7 @@ papers that are available via HAL.
 
 ## Acknowledgements
 
-EdgeNet is supported by a [VMware](https://www.vmware.com/) charitable donation to the Sorbonne University Foundation, 
+EdgeNet is supported by a [VMware](https://www.vmware.com/)  donation to the Sorbonne University Foundation, 
 and also receives support through a cybersecurity grant from the French Ministry of Armed Forces.
 It participates in the European Commission's Horizon 2020 funding program through the [Fed4FIRE+](https://www.fed4fire.eu/) 
 project and, recently, through the [NGIatlantic.eu](https://ngiatlantic.eu/) project.
