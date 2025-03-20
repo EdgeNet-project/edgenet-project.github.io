@@ -11,4 +11,4 @@ industry-standard cloud software [Kubernetes](https://kubernetes.io/) to the net
 
 The EdgeNet's source code is hosted in the official [Github repository](https://github.com/EdgeNet-project/edgenet).
 
-EdgeNet powers the [PlanetLan](https://planetlab.io) testbed, a globally distributed edge cloud for Internet researchers.
+EdgeNet powers the [PlanetLab](https://planetlab.io) testbed, a globally distributed edge cloud for Internet researchers.
